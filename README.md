@@ -1,101 +1,165 @@
-# The official C# library for the ClickSend v3 REST API
+# The official objc library for ClickSend v3 REST API
 
  This is the official [ClickSend](https://clicksend.com) SDK.  *You'll need to create a free account to use the API. You can register [here](https://www.clicksend.com/signup).*  You can use our API documentation along with the SDK. Our API docs can be found [here](https://developers.clicksend.com). 
 
-<a name="frameworks-supported"></a>
-## Frameworks supported
-- .NET 4.0 or later
-- Windows Phone 7.1 (Mango)
+## Requirements
 
-<a name="dependencies"></a>
-## Dependencies
-- [RestSharp](https://www.nuget.org/packages/RestSharp) - 105.1.0 or later
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
-- [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
+The SDK requires [**ARC (Automatic Reference Counting)**](http://stackoverflow.com/questions/7778356/how-to-enable-disable-automatic-reference-counting) to be enabled in the Xcode project.
 
-The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
-```
-Install-Package RestSharp
-Install-Package Newtonsoft.Json
-Install-Package JsonSubTypes
+## Installation & Usage
+### Install from Github using [CocoaPods](https://cocoapods.org/)
+
+Add the following to the Podfile:
+
+```ruby
+pod 'SwaggerClient', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 ```
 
-NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742)
+To specify a particular branch, append `, :branch => 'branch-name-here'`
 
-<a name="installation"></a>
-## Installation
-Run the following command to generate the DLL
-- [Mac/Linux] `/bin/sh build.sh`
-- [Windows] `build.bat`
+To specify a particular commit, append `, :commit => '11aa22'`
 
-Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
-```csharp
-using .SwaggerClient;
-using .Client;
-using .SwaggerClient;
-```
-<a name="packaging"></a>
-## Packaging
+### Install from local path using [CocoaPods](https://cocoapods.org/)
 
-A `.nuspec` is included with the project. You can follow the Nuget quickstart to [create](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#create-the-package) and [publish](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package#publish-the-package) packages.
+Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/SwaggerClient) and then add the following to the Podfile:
 
-This `.nuspec` uses placeholders from the `.csproj`, so build the `.csproj` directly:
-
-```
-nuget pack -Build -OutputDirectory out .csproj
+```ruby
+pod 'SwaggerClient', :path => 'Vendor/SwaggerClient'
 ```
 
-Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
+### Usage
 
-<a name="getting-started"></a>
+Import the following:
+
+```objc
+#import <SwaggerClient/SWGApiClient.h>
+#import <SwaggerClient/SWGDefaultConfiguration.h>
+// load models
+#import <SwaggerClient/SWGAccount.h>
+#import <SwaggerClient/SWGAccountForgotPasswordVerify.h>
+#import <SwaggerClient/SWGAccountVerify.h>
+#import <SwaggerClient/SWGAddress.h>
+#import <SwaggerClient/SWGAttachment.h>
+#import <SwaggerClient/SWGContact.h>
+#import <SwaggerClient/SWGContactListImport.h>
+#import <SwaggerClient/SWGCreditCard.h>
+#import <SwaggerClient/SWGDeliveryIssue.h>
+#import <SwaggerClient/SWGDeliveryReceiptRule.h>
+#import <SwaggerClient/SWGEmail.h>
+#import <SwaggerClient/SWGEmailCampaign.h>
+#import <SwaggerClient/SWGEmailFrom.h>
+#import <SwaggerClient/SWGEmailRecipient.h>
+#import <SwaggerClient/SWGEmailSMSAddress.h>
+#import <SwaggerClient/SWGEmailTemplateNew.h>
+#import <SwaggerClient/SWGEmailTemplateUpdate.h>
+#import <SwaggerClient/SWGFaxMessage.h>
+#import <SwaggerClient/SWGFaxMessageCollection.h>
+#import <SwaggerClient/SWGInboundFAXRule.h>
+#import <SwaggerClient/SWGInboundSMSRule.h>
+#import <SwaggerClient/SWGMmsCampaign.h>
+#import <SwaggerClient/SWGMmsMessage.h>
+#import <SwaggerClient/SWGMmsMessageCollection.h>
+#import <SwaggerClient/SWGPostDirectMail.h>
+#import <SwaggerClient/SWGPostDirectMailArea.h>
+#import <SwaggerClient/SWGPostLetter.h>
+#import <SwaggerClient/SWGPostPostcard.h>
+#import <SwaggerClient/SWGPostRecipient.h>
+#import <SwaggerClient/SWGResellerAccount.h>
+#import <SwaggerClient/SWGResellerAccountTransferCredit.h>
+#import <SwaggerClient/SWGSmsCampaign.h>
+#import <SwaggerClient/SWGSmsMessage.h>
+#import <SwaggerClient/SWGSmsMessageCollection.h>
+#import <SwaggerClient/SWGSmsTemplate.h>
+#import <SwaggerClient/SWGSubaccount.h>
+#import <SwaggerClient/SWGVoiceMessage.h>
+#import <SwaggerClient/SWGVoiceMessageCollection.h>
+// load API classes for accessing endpoints
+#import <SwaggerClient/SWGAccountApi.h>
+#import <SwaggerClient/SWGAccountRechargeApi.h>
+#import <SwaggerClient/SWGContactApi.h>
+#import <SwaggerClient/SWGContactListApi.h>
+#import <SwaggerClient/SWGCountriesApi.h>
+#import <SwaggerClient/SWGDeliveryIssuesApi.h>
+#import <SwaggerClient/SWGDetectAddressApi.h>
+#import <SwaggerClient/SWGEmailDeliveryReceiptRulesApi.h>
+#import <SwaggerClient/SWGEmailMarketingApi.h>
+#import <SwaggerClient/SWGEmailToSmsApi.h>
+#import <SwaggerClient/SWGFAXDeliveryReceiptRulesApi.h>
+#import <SwaggerClient/SWGFaxApi.h>
+#import <SwaggerClient/SWGInboundFAXRulesApi.h>
+#import <SwaggerClient/SWGInboundSMSRulesApi.h>
+#import <SwaggerClient/SWGMMSApi.h>
+#import <SwaggerClient/SWGMasterEmailTemplatesApi.h>
+#import <SwaggerClient/SWGMmsCampaignApi.h>
+#import <SwaggerClient/SWGNumberApi.h>
+#import <SwaggerClient/SWGPostDirectMailApi.h>
+#import <SwaggerClient/SWGPostLetterApi.h>
+#import <SwaggerClient/SWGPostPostcardApi.h>
+#import <SwaggerClient/SWGPostReturnAddressApi.h>
+#import <SwaggerClient/SWGReferralAccountApi.h>
+#import <SwaggerClient/SWGResellerAccountApi.h>
+#import <SwaggerClient/SWGSMSApi.h>
+#import <SwaggerClient/SWGSMSDeliveryReceiptRulesApi.h>
+#import <SwaggerClient/SWGSearchApi.h>
+#import <SwaggerClient/SWGSmsCampaignApi.h>
+#import <SwaggerClient/SWGStatisticsApi.h>
+#import <SwaggerClient/SWGSubaccountApi.h>
+#import <SwaggerClient/SWGTimezonesApi.h>
+#import <SwaggerClient/SWGTransactionalEmailApi.h>
+#import <SwaggerClient/SWGTransferCreditApi.h>
+#import <SwaggerClient/SWGUploadApi.h>
+#import <SwaggerClient/SWGUserEmailTemplatesApi.h>
+#import <SwaggerClient/SWGVoiceApi.h>
+#import <SwaggerClient/SWGVoiceDeliveryReceiptRulesApi.h>
+
+```
+
+## Recommendation
+
+It's recommended to create an instance of ApiClient per thread in a multi-threaded environment to avoid any potential issues.
+
 ## Getting Started
 
-```csharp
-using System;
-using System.Diagnostics;
-using .SwaggerClient;
-using .Client;
-using .SwaggerClient;
+Please follow the [installation procedure](#installation--usage) and then run the following:
 
-namespace Example
-{
-    public class Example
-    {
-        public void main()
-        {
+```objc
 
-            // Configure HTTP basic authorization: BasicAuth
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
+SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
 
-            var apiInstance = new SWGAccountApi();
 
-            try
-            {
-                // Get account information
-                NSString* result = apiInstance.accountGet();
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling SWGAccountApi.accountGet: " + e.Message );
-            }
 
-        }
-    }
-}
+SWGAccountApi *apiInstance = [[SWGAccountApi alloc] init];
+
+// Get account information
+[apiInstance accountGetWithCompletionHandler: 
+              ^(NSString* output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+
 ```
 
-<a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints and Models
 
 Documentation can be found here: [ClickSend API Docs](https://developers.clicksend.com/docs/)
 
-<a name="documentation-for-authorization"></a>
-## Documentation for Authorization
+## Documentation For Authorization
 
-<a name="BasicAuth"></a>
-### BasicAuth
+
+## BasicAuth
 
 - **Type**: HTTP basic authentication
+
+
+## Author
+
+support@clicksend.com
+
 
