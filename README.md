@@ -158,8 +158,3 @@ Documentation can be found here: [ClickSend API Docs](https://developers.clickse
 - **Type**: HTTP basic authentication
 
 
-## Author
-
-support@clicksend.com
-
-
