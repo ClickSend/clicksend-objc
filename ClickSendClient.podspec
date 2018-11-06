@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint SwaggerClient.podspec' to ensure this is a
+# Be sure to run `pod lib lint ClickSendClient.podspec' to ensure this is a
 # valid spec and remove all comments before submitting the spec.
 #
 # Any lines starting with a # are optional, but encouraged
@@ -8,7 +8,7 @@
 #
 
 Pod::Spec.new do |s|
-    s.name             = "SwaggerClient"
+    s.name             = "ClickSendClient"
     s.version          = "1.0.0"
 
     s.summary          = "ClickSend v3 REST API"
@@ -24,10 +24,10 @@ Pod::Spec.new do |s|
     s.homepage     = "https://github.com/swagger-api/swagger-codegen"
     s.license      = "Proprietary"
     s.source       = { :git => "https://github.com/swagger-api/swagger-codegen.git", :tag => "#{s.version}" }
-    s.author       = { "Swagger" => "apiteam@swagger.io" }
+    s.author       = { "ClickSend" => "apiteam@swagger.io" }
 
-    s.source_files = 'SwaggerClient/**/*.{m,h}'
-    s.public_header_files = 'SwaggerClient/**/*.h'
+    s.source_files = 'ClickSendClient/**/*.{m,h}'
+    s.public_header_files = 'ClickSendClient/**/*.h'
 
 
     s.dependency 'AFNetworking', '~> 3'

@@ -12,7 +12,7 @@ The SDK requires [**ARC (Automatic Reference Counting)**](http://stackoverflow.c
 Add the following to the Podfile:
 
 ```ruby
-pod 'SwaggerClient', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+pod 'ClickSendClient', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 ```
 
 To specify a particular branch, append `, :branch => 'branch-name-here'`
@@ -21,10 +21,10 @@ To specify a particular commit, append `, :commit => '11aa22'`
 
 ### Install from local path using [CocoaPods](https://cocoapods.org/)
 
-Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/SwaggerClient) and then add the following to the Podfile:
+Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/ClickSendClient) and then add the following to the Podfile:
 
 ```ruby
-pod 'SwaggerClient', :path => 'Vendor/SwaggerClient'
+pod 'ClickSendClient', :path => 'Vendor/ClickSendClient'
 ```
 
 ### Usage
@@ -32,85 +32,85 @@ pod 'SwaggerClient', :path => 'Vendor/SwaggerClient'
 Import the following:
 
 ```objc
-#import <SwaggerClient/SWGApiClient.h>
-#import <SwaggerClient/SWGDefaultConfiguration.h>
+#import <ClickSendClient/CSApiClient.h>
+#import <ClickSendClient/CSDefaultConfiguration.h>
 // load models
-#import <SwaggerClient/SWGAccount.h>
-#import <SwaggerClient/SWGAccountForgotPasswordVerify.h>
-#import <SwaggerClient/SWGAccountVerify.h>
-#import <SwaggerClient/SWGAddress.h>
-#import <SwaggerClient/SWGAttachment.h>
-#import <SwaggerClient/SWGContact.h>
-#import <SwaggerClient/SWGContactListImport.h>
-#import <SwaggerClient/SWGCreditCard.h>
-#import <SwaggerClient/SWGDeliveryIssue.h>
-#import <SwaggerClient/SWGDeliveryReceiptRule.h>
-#import <SwaggerClient/SWGEmail.h>
-#import <SwaggerClient/SWGEmailCampaign.h>
-#import <SwaggerClient/SWGEmailFrom.h>
-#import <SwaggerClient/SWGEmailRecipient.h>
-#import <SwaggerClient/SWGEmailSMSAddress.h>
-#import <SwaggerClient/SWGEmailTemplateNew.h>
-#import <SwaggerClient/SWGEmailTemplateUpdate.h>
-#import <SwaggerClient/SWGFaxMessage.h>
-#import <SwaggerClient/SWGFaxMessageCollection.h>
-#import <SwaggerClient/SWGInboundFAXRule.h>
-#import <SwaggerClient/SWGInboundSMSRule.h>
-#import <SwaggerClient/SWGMmsCampaign.h>
-#import <SwaggerClient/SWGMmsMessage.h>
-#import <SwaggerClient/SWGMmsMessageCollection.h>
-#import <SwaggerClient/SWGPostDirectMail.h>
-#import <SwaggerClient/SWGPostDirectMailArea.h>
-#import <SwaggerClient/SWGPostLetter.h>
-#import <SwaggerClient/SWGPostPostcard.h>
-#import <SwaggerClient/SWGPostRecipient.h>
-#import <SwaggerClient/SWGResellerAccount.h>
-#import <SwaggerClient/SWGResellerAccountTransferCredit.h>
-#import <SwaggerClient/SWGSmsCampaign.h>
-#import <SwaggerClient/SWGSmsMessage.h>
-#import <SwaggerClient/SWGSmsMessageCollection.h>
-#import <SwaggerClient/SWGSmsTemplate.h>
-#import <SwaggerClient/SWGSubaccount.h>
-#import <SwaggerClient/SWGVoiceMessage.h>
-#import <SwaggerClient/SWGVoiceMessageCollection.h>
+#import <ClickSendClient/CSAccount.h>
+#import <ClickSendClient/CSAccountForgotPasswordVerify.h>
+#import <ClickSendClient/CSAccountVerify.h>
+#import <ClickSendClient/CSAddress.h>
+#import <ClickSendClient/CSAttachment.h>
+#import <ClickSendClient/CSContact.h>
+#import <ClickSendClient/CSContactListImport.h>
+#import <ClickSendClient/CSCreditCard.h>
+#import <ClickSendClient/CSDeliveryIssue.h>
+#import <ClickSendClient/CSDeliveryReceiptRule.h>
+#import <ClickSendClient/CSEmail.h>
+#import <ClickSendClient/CSEmailCampaign.h>
+#import <ClickSendClient/CSEmailFrom.h>
+#import <ClickSendClient/CSEmailRecipient.h>
+#import <ClickSendClient/CSEmailSMSAddress.h>
+#import <ClickSendClient/CSEmailTemplateNew.h>
+#import <ClickSendClient/CSEmailTemplateUpdate.h>
+#import <ClickSendClient/CSFaxMessage.h>
+#import <ClickSendClient/CSFaxMessageCollection.h>
+#import <ClickSendClient/CSInboundFAXRule.h>
+#import <ClickSendClient/CSInboundSMSRule.h>
+#import <ClickSendClient/CSMmsCampaign.h>
+#import <ClickSendClient/CSMmsMessage.h>
+#import <ClickSendClient/CSMmsMessageCollection.h>
+#import <ClickSendClient/CSPostDirectMail.h>
+#import <ClickSendClient/CSPostDirectMailArea.h>
+#import <ClickSendClient/CSPostLetter.h>
+#import <ClickSendClient/CSPostPostcard.h>
+#import <ClickSendClient/CSPostRecipient.h>
+#import <ClickSendClient/CSResellerAccount.h>
+#import <ClickSendClient/CSResellerAccountTransferCredit.h>
+#import <ClickSendClient/CSSmsCampaign.h>
+#import <ClickSendClient/CSSmsMessage.h>
+#import <ClickSendClient/CSSmsMessageCollection.h>
+#import <ClickSendClient/CSSmsTemplate.h>
+#import <ClickSendClient/CSSubaccount.h>
+#import <ClickSendClient/CSVoiceMessage.h>
+#import <ClickSendClient/CSVoiceMessageCollection.h>
 // load API classes for accessing endpoints
-#import <SwaggerClient/SWGAccountApi.h>
-#import <SwaggerClient/SWGAccountRechargeApi.h>
-#import <SwaggerClient/SWGContactApi.h>
-#import <SwaggerClient/SWGContactListApi.h>
-#import <SwaggerClient/SWGCountriesApi.h>
-#import <SwaggerClient/SWGDeliveryIssuesApi.h>
-#import <SwaggerClient/SWGDetectAddressApi.h>
-#import <SwaggerClient/SWGEmailDeliveryReceiptRulesApi.h>
-#import <SwaggerClient/SWGEmailMarketingApi.h>
-#import <SwaggerClient/SWGEmailToSmsApi.h>
-#import <SwaggerClient/SWGFAXDeliveryReceiptRulesApi.h>
-#import <SwaggerClient/SWGFaxApi.h>
-#import <SwaggerClient/SWGInboundFAXRulesApi.h>
-#import <SwaggerClient/SWGInboundSMSRulesApi.h>
-#import <SwaggerClient/SWGMMSApi.h>
-#import <SwaggerClient/SWGMasterEmailTemplatesApi.h>
-#import <SwaggerClient/SWGMmsCampaignApi.h>
-#import <SwaggerClient/SWGNumberApi.h>
-#import <SwaggerClient/SWGPostDirectMailApi.h>
-#import <SwaggerClient/SWGPostLetterApi.h>
-#import <SwaggerClient/SWGPostPostcardApi.h>
-#import <SwaggerClient/SWGPostReturnAddressApi.h>
-#import <SwaggerClient/SWGReferralAccountApi.h>
-#import <SwaggerClient/SWGResellerAccountApi.h>
-#import <SwaggerClient/SWGSMSApi.h>
-#import <SwaggerClient/SWGSMSDeliveryReceiptRulesApi.h>
-#import <SwaggerClient/SWGSearchApi.h>
-#import <SwaggerClient/SWGSmsCampaignApi.h>
-#import <SwaggerClient/SWGStatisticsApi.h>
-#import <SwaggerClient/SWGSubaccountApi.h>
-#import <SwaggerClient/SWGTimezonesApi.h>
-#import <SwaggerClient/SWGTransactionalEmailApi.h>
-#import <SwaggerClient/SWGTransferCreditApi.h>
-#import <SwaggerClient/SWGUploadApi.h>
-#import <SwaggerClient/SWGUserEmailTemplatesApi.h>
-#import <SwaggerClient/SWGVoiceApi.h>
-#import <SwaggerClient/SWGVoiceDeliveryReceiptRulesApi.h>
+#import <ClickSendClient/CSAccountApi.h>
+#import <ClickSendClient/CSAccountRechargeApi.h>
+#import <ClickSendClient/CSContactApi.h>
+#import <ClickSendClient/CSContactListApi.h>
+#import <ClickSendClient/CSCountriesApi.h>
+#import <ClickSendClient/CSDeliveryIssuesApi.h>
+#import <ClickSendClient/CSDetectAddressApi.h>
+#import <ClickSendClient/CSEmailDeliveryReceiptRulesApi.h>
+#import <ClickSendClient/CSEmailMarketingApi.h>
+#import <ClickSendClient/CSEmailToSmsApi.h>
+#import <ClickSendClient/CSFAXDeliveryReceiptRulesApi.h>
+#import <ClickSendClient/CSFaxApi.h>
+#import <ClickSendClient/CSInboundFAXRulesApi.h>
+#import <ClickSendClient/CSInboundSMSRulesApi.h>
+#import <ClickSendClient/CSMMSApi.h>
+#import <ClickSendClient/CSMasterEmailTemplatesApi.h>
+#import <ClickSendClient/CSMmsCampaignApi.h>
+#import <ClickSendClient/CSNumberApi.h>
+#import <ClickSendClient/CSPostDirectMailApi.h>
+#import <ClickSendClient/CSPostLetterApi.h>
+#import <ClickSendClient/CSPostPostcardApi.h>
+#import <ClickSendClient/CSPostReturnAddressApi.h>
+#import <ClickSendClient/CSReferralAccountApi.h>
+#import <ClickSendClient/CSResellerAccountApi.h>
+#import <ClickSendClient/CSSMSApi.h>
+#import <ClickSendClient/CSSMSDeliveryReceiptRulesApi.h>
+#import <ClickSendClient/CSSearchApi.h>
+#import <ClickSendClient/CSSmsCampaignApi.h>
+#import <ClickSendClient/CSStatisticsApi.h>
+#import <ClickSendClient/CSSubaccountApi.h>
+#import <ClickSendClient/CSTimezonesApi.h>
+#import <ClickSendClient/CSTransactionalEmailApi.h>
+#import <ClickSendClient/CSTransferCreditApi.h>
+#import <ClickSendClient/CSUploadApi.h>
+#import <ClickSendClient/CSUserEmailTemplatesApi.h>
+#import <ClickSendClient/CSVoiceApi.h>
+#import <ClickSendClient/CSVoiceDeliveryReceiptRulesApi.h>
 
 ```
 
@@ -124,14 +124,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```objc
 
-SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 // Configure HTTP basic authorization (authentication scheme: BasicAuth)
 [apiConfig setUsername:@"YOUR_USERNAME"];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
 
-SWGAccountApi *apiInstance = [[SWGAccountApi alloc] init];
+CSAccountApi *apiInstance = [[CSAccountApi alloc] init];
 
 // Get account information
 [apiInstance accountGetWithCompletionHandler: 
