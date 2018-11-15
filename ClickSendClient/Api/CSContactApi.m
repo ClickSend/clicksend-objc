@@ -627,7 +627,7 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/lists/{from_list_id}/contacts/{contact_id}/{to_list_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/lists/{from_list_id}/contacts/{contact_id}/transfer/{to_list_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (fromListId != nil) {

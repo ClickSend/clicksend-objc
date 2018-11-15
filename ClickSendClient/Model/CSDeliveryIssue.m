@@ -34,7 +34,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"messageId": @"message_id", @"type": @"type", @"_description": @"description", @"clientComments": @"client_comments", @"emailAddress": @"email-address" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"messageId": @"message_id", @"type": @"type", @"_description": @"description", @"clientComments": @"client_comments", @"emailAddress": @"email_address" }];
 }
 
 /**
