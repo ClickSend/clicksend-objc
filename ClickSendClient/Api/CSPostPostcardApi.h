@@ -37,9 +37,9 @@ extern NSInteger kCSPostPostcardApiMissingParamErrorCode;
 ///  code:429 message:"TOO_MANY_REQUESTS",
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
-/// @return NSURL*
+/// @return NSString*
 -(NSURLSessionTask*) postPostcardsHistoryExportGetWithFilename: (NSString*) filename
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Retrieve the history of postcards sent or scheduled

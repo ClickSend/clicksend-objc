@@ -323,12 +323,12 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
 ///
 ///  @param dateTo End date (optional)
 ///
-///  @returns NSURL*
+///  @returns NSString*
 ///
 -(NSURLSessionTask*) emailCampaignHistoryExportGetWithEmailCampaignId: (NSNumber*) emailCampaignId
     dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'emailCampaignId' is set
     if (emailCampaignId == nil) {
         NSParameterAssert(emailCampaignId);
@@ -386,10 +386,10 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSURL*"
+                              responseType: @"NSString*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSURL*)data, error);
+                                    handler((NSString*)data, error);
                                 }
                             }];
 }

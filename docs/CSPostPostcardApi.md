@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **postPostcardsHistoryExportGet**
 ```objc
 -(NSURLSessionTask*) postPostcardsHistoryExportGetWithFilename: (NSString*) filename
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Export postcard history to a CSV file
@@ -34,7 +34,7 @@ CSPostPostcardApi*apiInstance = [[CSPostPostcardApi alloc] init];
 
 // Export postcard history to a CSV file
 [apiInstance postPostcardsHistoryExportGetWithFilename:filename
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

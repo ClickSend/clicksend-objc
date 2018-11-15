@@ -54,10 +54,10 @@ NSInteger kCSPostPostcardApiMissingParamErrorCode = 234513;
 /// Export postcard history to a CSV file
 ///  @param filename Filename to export to 
 ///
-///  @returns NSURL*
+///  @returns NSString*
 ///
 -(NSURLSessionTask*) postPostcardsHistoryExportGetWithFilename: (NSString*) filename
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'filename' is set
     if (filename == nil) {
         NSParameterAssert(filename);
@@ -109,10 +109,10 @@ NSInteger kCSPostPostcardApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSURL*"
+                              responseType: @"NSString*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSURL*)data, error);
+                                    handler((NSString*)data, error);
                                 }
                             }];
 }

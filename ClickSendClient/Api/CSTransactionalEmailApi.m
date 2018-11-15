@@ -58,12 +58,12 @@ NSInteger kCSTransactionalEmailApiMissingParamErrorCode = 234513;
 ///
 ///  @param dateTo End date (optional)
 ///
-///  @returns NSURL*
+///  @returns NSString*
 ///
 -(NSURLSessionTask*) emailHistoryExportGetWithFilename: (NSString*) filename
     dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler {
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'filename' is set
     if (filename == nil) {
         NSParameterAssert(filename);
@@ -121,10 +121,10 @@ NSInteger kCSTransactionalEmailApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"NSURL*"
+                              responseType: @"NSString*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((NSURL*)data, error);
+                                    handler((NSString*)data, error);
                                 }
                             }];
 }

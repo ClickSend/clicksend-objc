@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 # **voiceHistoryExportGet**
 ```objc
 -(NSURLSessionTask*) voiceHistoryExportGetWithFilename: (NSString*) filename
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Export voice history
@@ -144,7 +144,7 @@ CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
 
 // Export voice history
 [apiInstance voiceHistoryExportGetWithFilename:filename
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

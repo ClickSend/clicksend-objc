@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **postLettersExportGet**
 ```objc
 -(NSURLSessionTask*) postLettersExportGetWithFilename: (NSString*) filename
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 export post letter history
@@ -34,7 +34,7 @@ CSPostLetterApi*apiInstance = [[CSPostLetterApi alloc] init];
 
 // export post letter history
 [apiInstance postLettersExportGetWithFilename:filename
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

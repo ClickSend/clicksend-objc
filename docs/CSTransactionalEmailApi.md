@@ -15,7 +15,7 @@ Method | HTTP request | Description
 -(NSURLSessionTask*) emailHistoryExportGetWithFilename: (NSString*) filename
     dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Export all Transactional Email history
@@ -40,7 +40,7 @@ CSTransactionalEmailApi*apiInstance = [[CSTransactionalEmailApi alloc] init];
 [apiInstance emailHistoryExportGetWithFilename:filename
               dateFrom:dateFrom
               dateTo:dateTo
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

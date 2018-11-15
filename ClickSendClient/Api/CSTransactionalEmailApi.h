@@ -39,11 +39,11 @@ extern NSInteger kCSTransactionalEmailApiMissingParamErrorCode;
 ///  code:429 message:"TOO_MANY_REQUESTS",
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
-/// @return NSURL*
+/// @return NSString*
 -(NSURLSessionTask*) emailHistoryExportGetWithFilename: (NSString*) filename
     dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Get all transactional email history

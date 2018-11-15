@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 # **smsHistoryExportGet**
 ```objc
 -(NSURLSessionTask*) smsHistoryExportGetWithFilename: (NSString*) filename
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Export all sms history
@@ -153,7 +153,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 // Export all sms history
 [apiInstance smsHistoryExportGetWithFilename:filename
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

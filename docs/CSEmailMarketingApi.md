@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) emailCampaignHistoryExportGetWithEmailCampaignId: (NSNumber*) emailCampaignId
     dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
-        completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Export specific email campaign history
@@ -274,7 +274,7 @@ CSEmailMarketingApi*apiInstance = [[CSEmailMarketingApi alloc] init];
 [apiInstance emailCampaignHistoryExportGetWithEmailCampaignId:emailCampaignId
               dateFrom:dateFrom
               dateTo:dateTo
-          completionHandler: ^(NSURL* output, NSError* error) {
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**NSURL***
+**NSString***
 
 ### Authorization
 

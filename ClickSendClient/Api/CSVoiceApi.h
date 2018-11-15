@@ -74,9 +74,9 @@ extern NSInteger kCSVoiceApiMissingParamErrorCode;
 ///  code:429 message:"TOO_MANY_REQUESTS",
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
-/// @return NSURL*
+/// @return NSString*
 -(NSURLSessionTask*) voiceHistoryExportGetWithFilename: (NSString*) filename
-    completionHandler: (void (^)(NSURL* output, NSError* error)) handler;
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Get all voice history
