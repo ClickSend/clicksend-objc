@@ -28,5 +28,8 @@
 /* Your sender id 
  */
 @property(nonatomic) NSString* from;
+/* Your subaccount id [optional]
+ */
+@property(nonatomic) NSString* subaccountId;
 
 @end

@@ -623,15 +623,29 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
 /// Edit email campaign
 ///  @param emailCampaignId Allowed email campaign id 
 ///
+///  @param emailCampaign Email model 
+///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) emailCampaignPutWithEmailCampaignId: (NSNumber*) emailCampaignId
+    emailCampaign: (CSEmailCampaign*) emailCampaign
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'emailCampaignId' is set
     if (emailCampaignId == nil) {
         NSParameterAssert(emailCampaignId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"emailCampaignId"] };
+            NSError* error = [NSError errorWithDomain:kCSEmailMarketingApiErrorDomain code:kCSEmailMarketingApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'emailCampaign' is set
+    if (emailCampaign == nil) {
+        NSParameterAssert(emailCampaign);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"emailCampaign"] };
             NSError* error = [NSError errorWithDomain:kCSEmailMarketingApiErrorDomain code:kCSEmailMarketingApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -666,6 +680,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = emailCampaign;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -799,7 +814,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
 
     return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
+                                    method: @"PUT"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams
@@ -1020,7 +1035,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
 
     return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
+                                    method: @"PUT"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams

@@ -43,6 +43,9 @@
 /* From Email object. 
  */
 @property(nonatomic) NSArray<CSEmailFrom>* from;
+/* Subject of the email. [optional]
+ */
+@property(nonatomic) NSString* subject;
 /* Body of the email. 
  */
 @property(nonatomic) NSString* body;

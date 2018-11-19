@@ -14,10 +14,10 @@ Method | HTTP request | Description
 [**emailCampaignPricePost**](CSEmailMarketingApi.md#emailcampaignpricepost) | **POST** /email-campaigns/price | Calculate email campaign price
 [**emailCampaignPut**](CSEmailMarketingApi.md#emailcampaignput) | **PUT** /email-campaigns/{email_campaign_id} | Edit email campaign
 [**emailCampaignsGet**](CSEmailMarketingApi.md#emailcampaignsget) | **GET** /email-campaigns | Get all email campaigns
-[**sendVerificationTokenGet**](CSEmailMarketingApi.md#sendverificationtokenget) | **GET** /email/address-verify/{email_address_id}/send | Send verification token
+[**sendVerificationTokenGet**](CSEmailMarketingApi.md#sendverificationtokenget) | **PUT** /email/address-verify/{email_address_id}/send | Send verification token
 [**specificAllowedEmailAddressDelete**](CSEmailMarketingApi.md#specificallowedemailaddressdelete) | **DELETE** /email/addresses/{email_address_id} | Delete specific email address
 [**specificAllowedEmailAddressGet**](CSEmailMarketingApi.md#specificallowedemailaddressget) | **GET** /email/addresses/{email_address_id} | Get specific email address
-[**verifyAllowedEmailAddressGet**](CSEmailMarketingApi.md#verifyallowedemailaddressget) | **GET** /email/address-verify/{email_address_id}/verify/{activation_token} | Verify email address using verification token
+[**verifyAllowedEmailAddressGet**](CSEmailMarketingApi.md#verifyallowedemailaddressget) | **PUT** /email/address-verify/{email_address_id}/verify/{activation_token} | Verify email address using verification token
 
 
 # **allowedEmailAddressGet**
@@ -491,6 +491,7 @@ Name | Type | Description  | Notes
 # **emailCampaignPut**
 ```objc
 -(NSURLSessionTask*) emailCampaignPutWithEmailCampaignId: (NSNumber*) emailCampaignId
+    emailCampaign: (CSEmailCampaign*) emailCampaign
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -507,11 +508,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 
 NSNumber* emailCampaignId = @56; // Allowed email campaign id
+CSEmailCampaign* emailCampaign = [[CSEmailCampaign alloc] init]; // Email model
 
 CSEmailMarketingApi*apiInstance = [[CSEmailMarketingApi alloc] init];
 
 // Edit email campaign
 [apiInstance emailCampaignPutWithEmailCampaignId:emailCampaignId
+              emailCampaign:emailCampaign
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -527,6 +530,7 @@ CSEmailMarketingApi*apiInstance = [[CSEmailMarketingApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailCampaignId** | **NSNumber***| Allowed email campaign id | 
+ **emailCampaign** | [**CSEmailCampaign***](CSEmailCampaign.md)| Email model | 
 
 ### Return type
 

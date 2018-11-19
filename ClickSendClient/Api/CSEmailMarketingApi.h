@@ -193,6 +193,7 @@ extern NSInteger kCSEmailMarketingApiMissingParamErrorCode;
 /// Edit email campaign
 ///
 /// @param emailCampaignId Allowed email campaign id
+/// @param emailCampaign Email model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -205,6 +206,7 @@ extern NSInteger kCSEmailMarketingApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) emailCampaignPutWithEmailCampaignId: (NSNumber*) emailCampaignId
+    emailCampaign: (CSEmailCampaign*) emailCampaign
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

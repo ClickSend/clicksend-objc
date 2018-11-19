@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **cc** | [**NSArray&lt;CSEmailRecipient&gt;***](CSEmailRecipient.md) | Array of Cc Recipient items. | [optional] 
 **bcc** | [**NSArray&lt;CSEmailRecipient&gt;***](CSEmailRecipient.md) | Array of Bcc Recipient items. | [optional] 
 **from** | [**NSArray&lt;CSEmailFrom&gt;***](CSEmailFrom.md) | From Email object. | 
+**subject** | **NSString*** | Subject of the email. | [optional] 
 **body** | **NSString*** | Body of the email. | 
 **attachments** | [**NSArray&lt;CSAttachment&gt;***](CSAttachment.md) | Array of Attachment items. | [optional] 
 **schedule** | **NSNumber*** | Schedule. | [optional] 

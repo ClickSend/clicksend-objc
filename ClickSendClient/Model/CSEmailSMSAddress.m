@@ -34,7 +34,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"emailAddress": @"email_address", @"from": @"from" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"emailAddress": @"email_address", @"from": @"from", @"subaccountId": @"subaccount_id" }];
 }
 
 /**
@@ -44,7 +44,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[];
+  NSArray *optionalProperties = @[@"subaccountId"];
   return [optionalProperties containsObject:propertyName];
 }
 
