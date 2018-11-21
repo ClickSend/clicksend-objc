@@ -46,6 +46,7 @@ Import the following:
 #import <ClickSendClient/CSDeliveryIssue.h>
 #import <ClickSendClient/CSDeliveryReceiptRule.h>
 #import <ClickSendClient/CSEmail.h>
+#import <ClickSendClient/CSEmailAddress.h>
 #import <ClickSendClient/CSEmailCampaign.h>
 #import <ClickSendClient/CSEmailFrom.h>
 #import <ClickSendClient/CSEmailRecipient.h>
@@ -55,6 +56,8 @@ Import the following:
 #import <ClickSendClient/CSFaxMessage.h>
 #import <ClickSendClient/CSFaxMessageCollection.h>
 #import <ClickSendClient/CSFields.h>
+#import <ClickSendClient/CSForgotPassword.h>
+#import <ClickSendClient/CSForgotUsername.h>
 #import <ClickSendClient/CSInboundFAXRule.h>
 #import <ClickSendClient/CSInboundSMSRule.h>
 #import <ClickSendClient/CSMmsCampaign.h>
@@ -71,7 +74,10 @@ Import the following:
 #import <ClickSendClient/CSSmsMessage.h>
 #import <ClickSendClient/CSSmsMessageCollection.h>
 #import <ClickSendClient/CSSmsTemplate.h>
+#import <ClickSendClient/CSStrippedString.h>
 #import <ClickSendClient/CSSubaccount.h>
+#import <ClickSendClient/CSUploadFile.h>
+#import <ClickSendClient/CSUrl.h>
 #import <ClickSendClient/CSVoiceMessage.h>
 #import <ClickSendClient/CSVoiceMessageCollection.h>
 // load API classes for accessing endpoints

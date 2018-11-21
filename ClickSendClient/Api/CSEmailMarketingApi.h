@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "CSEmailAddress.h"
 #import "CSEmailCampaign.h"
 #import "CSApi.h"
 
@@ -47,7 +48,7 @@ extern NSInteger kCSEmailMarketingApiMissingParamErrorCode;
 /// Create allowed Email Address
 /// Create allowed Email Address
 ///
-/// @param emailAddress Email to be allowed.
+/// @param emailAddress  (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -59,7 +60,7 @@ extern NSInteger kCSEmailMarketingApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) allowedEmailAddressPostWithEmailAddress: (NSString*) emailAddress
+-(NSURLSessionTask*) allowedEmailAddressPostWithEmailAddress: (CSEmailAddress*) emailAddress
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

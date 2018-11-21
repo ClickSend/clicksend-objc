@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
 
 # **smsInboundPost**
 ```objc
--(NSURLSessionTask*) smsInboundPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsInboundPostWithUrl: (CSUrl*) url
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -328,7 +328,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* url = @"url_example"; // Your url.
+CSUrl* url = [[CSUrl alloc] init]; // Url model
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -348,7 +348,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **NSString***| Your url. | 
+ **url** | [**CSUrl***](CSUrl.md)| Url model | 
 
 ### Return type
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 
 # **smsReceiptsPost**
 ```objc
--(NSURLSessionTask*) smsReceiptsPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsReceiptsPostWithUrl: (CSUrl*) url
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -607,7 +607,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* url = @"url_example"; // Your url.
+CSUrl* url = [[CSUrl alloc] init]; // Url model
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -627,7 +627,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **NSString***| Your url. | 
+ **url** | [**CSUrl***](CSUrl.md)| Url model | 
 
 ### Return type
 
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

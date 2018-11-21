@@ -2,6 +2,8 @@
 #import "CSAccount.h"
 #import "CSAccountForgotPasswordVerify.h"
 #import "CSAccountVerify.h"
+#import "CSForgotPassword.h"
+#import "CSForgotUsername.h"
 #import "CSApi.h"
 
 /**
@@ -103,7 +105,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 /// Forgot password
 /// Forgot password
 ///
-/// @param username Username belonging to account.
+/// @param forgotPassword  (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -115,7 +117,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) forgotPasswordPutWithUsername: (NSString*) username
+-(NSURLSessionTask*) forgotPasswordPutWithForgotPassword: (CSForgotPassword*) forgotPassword
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -141,8 +143,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 /// Forgot username
 /// Forgot username
 ///
-/// @param email Email belonging to account. (optional)
-/// @param phoneNumber Phone number belonging to account. (optional)
+/// @param forgotUsername  (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -154,8 +155,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) forgotUsernamePutWithEmail: (NSString*) email
-    phoneNumber: (NSString*) phoneNumber
+-(NSURLSessionTask*) forgotUsernamePutWithForgotUsername: (CSForgotUsername*) forgotUsername
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

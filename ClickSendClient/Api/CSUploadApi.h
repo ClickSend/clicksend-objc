@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "CSUploadFile.h"
 #import "CSApi.h"
 
 /**
@@ -25,8 +26,8 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 /// Upload File
 /// Upload File
 ///
-/// @param content Your base64 encoded file.
 /// @param convert 
+/// @param uploadFile  (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -38,8 +39,8 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) uploadsPostWithContent: (NSString*) content
-    convert: (NSString*) convert
+-(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
+    uploadFile: (CSUploadFile*) uploadFile
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

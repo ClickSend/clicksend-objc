@@ -1,6 +1,7 @@
 #import "CSUploadApi.h"
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
+#import "CSUploadFile.h"
 
 
 @interface CSUploadApi ()
@@ -51,26 +52,15 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
 ///
 /// Upload File
 /// Upload File
-///  @param content Your base64 encoded file. 
-///
 ///  @param convert  
+///
+///  @param uploadFile  (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) uploadsPostWithContent: (NSString*) content
-    convert: (NSString*) convert
+-(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
+    uploadFile: (CSUploadFile*) uploadFile
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'content' is set
-    if (content == nil) {
-        NSParameterAssert(content);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"content"] };
-            NSError* error = [NSError errorWithDomain:kCSUploadApiErrorDomain code:kCSUploadApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     // verify the required parameter 'convert' is set
     if (convert == nil) {
         NSParameterAssert(convert);
@@ -102,7 +92,7 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -110,9 +100,7 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (content) {
-        formParams[@"content"] = content;
-    }
+    bodyParam = uploadFile;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

@@ -4,6 +4,8 @@
 #import "CSAccount.h"
 #import "CSAccountForgotPasswordVerify.h"
 #import "CSAccountVerify.h"
+#import "CSForgotPassword.h"
+#import "CSForgotUsername.h"
 
 
 @interface CSAccountApi ()
@@ -306,23 +308,12 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
 ///
 /// Forgot password
 /// Forgot password
-///  @param username Username belonging to account. 
+///  @param forgotPassword  (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) forgotPasswordPutWithUsername: (NSString*) username
+-(NSURLSessionTask*) forgotPasswordPutWithForgotPassword: (CSForgotPassword*) forgotPassword
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'username' is set
-    if (username == nil) {
-        NSParameterAssert(username);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"username"] };
-            NSError* error = [NSError errorWithDomain:kCSAccountApiErrorDomain code:kCSAccountApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/forgot-password"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -340,7 +331,7 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -348,9 +339,7 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (username) {
-        formParams[@"username"] = username;
-    }
+    bodyParam = forgotPassword;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -440,14 +429,11 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
 ///
 /// Forgot username
 /// Forgot username
-///  @param email Email belonging to account. (optional)
-///
-///  @param phoneNumber Phone number belonging to account. (optional)
+///  @param forgotUsername  (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) forgotUsernamePutWithEmail: (NSString*) email
-    phoneNumber: (NSString*) phoneNumber
+-(NSURLSessionTask*) forgotUsernamePutWithForgotUsername: (CSForgotUsername*) forgotUsername
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/forgot-username"];
 
@@ -466,7 +452,7 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[];
@@ -474,12 +460,7 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (email) {
-        formParams[@"email"] = email;
-    }
-    if (phoneNumber) {
-        formParams[@"phone_number"] = phoneNumber;
-    }
+    bodyParam = forgotUsername;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"

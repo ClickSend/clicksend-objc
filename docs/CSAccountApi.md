@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 # **forgotPasswordPut**
 ```objc
--(NSURLSessionTask*) forgotPasswordPutWithUsername: (NSString*) username
+-(NSURLSessionTask*) forgotPasswordPutWithForgotPassword: (CSForgotPassword*) forgotPassword
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -247,12 +247,12 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* username = @"username_example"; // Username belonging to account.
+CSForgotPassword* forgotPassword = [[CSForgotPassword alloc] init]; //  (optional)
 
 CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 // Forgot password
-[apiInstance forgotPasswordPutWithUsername:username
+[apiInstance forgotPasswordPutWithForgotPassword:forgotPassword
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -267,7 +267,7 @@ CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **NSString***| Username belonging to account. | 
+ **forgotPassword** | [**CSForgotPassword***](CSForgotPassword.md)|  | [optional] 
 
 ### Return type
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -341,8 +341,7 @@ Name | Type | Description  | Notes
 
 # **forgotUsernamePut**
 ```objc
--(NSURLSessionTask*) forgotUsernamePutWithEmail: (NSString*) email
-    phoneNumber: (NSString*) phoneNumber
+-(NSURLSessionTask*) forgotUsernamePutWithForgotUsername: (CSForgotUsername*) forgotUsername
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -353,14 +352,12 @@ Forgot username
 ### Example 
 ```objc
 
-NSString* email = @"email_example"; // Email belonging to account. (optional)
-NSString* phoneNumber = @"phoneNumber_example"; // Phone number belonging to account. (optional)
+CSForgotUsername* forgotUsername = [[CSForgotUsername alloc] init]; //  (optional)
 
 CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 // Forgot username
-[apiInstance forgotUsernamePutWithEmail:email
-              phoneNumber:phoneNumber
+[apiInstance forgotUsernamePutWithForgotUsername:forgotUsername
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -375,8 +372,7 @@ CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **NSString***| Email belonging to account. | [optional] 
- **phoneNumber** | **NSString***| Phone number belonging to account. | [optional] 
+ **forgotUsername** | [**CSForgotUsername***](CSForgotUsername.md)|  | [optional] 
 
 ### Return type
 
@@ -388,7 +384,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

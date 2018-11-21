@@ -3,6 +3,7 @@
 #import "CSApiClient.h"
 #import "CSSmsMessageCollection.h"
 #import "CSSmsTemplate.h"
+#import "CSUrl.h"
 
 
 @interface CSSMSApi ()
@@ -379,11 +380,11 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Create inbound sms
 /// Create inbound sms
-///  @param url Your url. 
+///  @param url Url model 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsInboundPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsInboundPostWithUrl: (CSUrl*) url
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'url' is set
     if (url == nil) {
@@ -413,7 +414,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -421,9 +422,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (url) {
-        formParams[@"url"] = url;
-    }
+    bodyParam = url;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -699,11 +698,11 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Add a delivery receipt
 /// Add a delivery receipt
-///  @param url Your url. 
+///  @param url Url model 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsReceiptsPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsReceiptsPostWithUrl: (CSUrl*) url
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'url' is set
     if (url == nil) {
@@ -733,7 +732,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -741,9 +740,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (url) {
-        formParams[@"url"] = url;
-    }
+    bodyParam = url;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

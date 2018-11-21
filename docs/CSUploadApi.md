@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 # **uploadsPost**
 ```objc
--(NSURLSessionTask*) uploadsPostWithContent: (NSString*) content
-    convert: (NSString*) convert
+-(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
+    uploadFile: (CSUploadFile*) uploadFile
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -26,14 +26,14 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* content = @"content_example"; // Your base64 encoded file.
 NSString* convert = @"convert_example"; // 
+CSUploadFile* uploadFile = [[CSUploadFile alloc] init]; //  (optional)
 
 CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
 
 // Upload File
-[apiInstance uploadsPostWithContent:content
-              convert:convert
+[apiInstance uploadsPostWithConvert:convert
+              uploadFile:uploadFile
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -48,8 +48,8 @@ CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content** | **NSString***| Your base64 encoded file. | 
  **convert** | **NSString***|  | 
+ **uploadFile** | [**CSUploadFile***](CSUploadFile.md)|  | [optional] 
 
 ### Return type
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,6 +1,7 @@
 #import "CSEmailMarketingApi.h"
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
+#import "CSEmailAddress.h"
 #import "CSEmailCampaign.h"
 
 
@@ -115,23 +116,12 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
 ///
 /// Create allowed Email Address
 /// Create allowed Email Address
-///  @param emailAddress Email to be allowed. 
+///  @param emailAddress  (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) allowedEmailAddressPostWithEmailAddress: (NSString*) emailAddress
+-(NSURLSessionTask*) allowedEmailAddressPostWithEmailAddress: (CSEmailAddress*) emailAddress
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'emailAddress' is set
-    if (emailAddress == nil) {
-        NSParameterAssert(emailAddress);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"emailAddress"] };
-            NSError* error = [NSError errorWithDomain:kCSEmailMarketingApiErrorDomain code:kCSEmailMarketingApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/email/addresses"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -149,7 +139,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -157,9 +147,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    if (emailAddress) {
-        formParams[@"email_address"] = emailAddress;
-    }
+    bodyParam = emailAddress;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "CSSmsMessageCollection.h"
 #import "CSSmsTemplate.h"
+#import "CSUrl.h"
 #import "CSApi.h"
 
 /**
@@ -129,7 +130,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Create inbound sms
 /// Create inbound sms
 ///
-/// @param url Your url.
+/// @param url Url model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -141,7 +142,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsInboundPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsInboundPostWithUrl: (CSUrl*) url
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -226,7 +227,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Add a delivery receipt
 /// Add a delivery receipt
 ///
-/// @param url Your url.
+/// @param url Url model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -238,7 +239,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsReceiptsPostWithUrl: (NSString*) url
+-(NSURLSessionTask*) smsReceiptsPostWithUrl: (CSUrl*) url
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
