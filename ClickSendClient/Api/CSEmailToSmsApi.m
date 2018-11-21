@@ -317,17 +317,17 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
 ///
 /// Create email to sms stripped string rule
 /// Create email to sms stripped string rules
-///  @param strippedString String to be stripped. 
+///  @param stripString String to be stripped. 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStrippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStripString: (NSString*) stripString
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'strippedString' is set
-    if (strippedString == nil) {
-        NSParameterAssert(strippedString);
+    // verify the required parameter 'stripString' is set
+    if (stripString == nil) {
+        NSParameterAssert(stripString);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"strippedString"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"stripString"] };
             NSError* error = [NSError errorWithDomain:kCSEmailToSmsApiErrorDomain code:kCSEmailToSmsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -351,7 +351,7 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -359,7 +359,9 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = strippedString;
+    if (stripString) {
+        formParams[@"strip-string"] = stripString;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -383,31 +385,31 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
 ///
 /// Update email to sms stripped string rule
 /// Update email to sms stripped string rule
-///  @param ruleId Your rule id 
+///  @param stripString String to be stripped. 
 ///
-///  @param strippedString String to be stripped. 
+///  @param ruleId Your rule id 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithRuleId: (NSNumber*) ruleId
-    strippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStripString: (NSString*) stripString
+    ruleId: (NSNumber*) ruleId
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'ruleId' is set
-    if (ruleId == nil) {
-        NSParameterAssert(ruleId);
+    // verify the required parameter 'stripString' is set
+    if (stripString == nil) {
+        NSParameterAssert(stripString);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ruleId"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"stripString"] };
             NSError* error = [NSError errorWithDomain:kCSEmailToSmsApiErrorDomain code:kCSEmailToSmsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    // verify the required parameter 'strippedString' is set
-    if (strippedString == nil) {
-        NSParameterAssert(strippedString);
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == nil) {
+        NSParameterAssert(ruleId);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"strippedString"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"ruleId"] };
             NSError* error = [NSError errorWithDomain:kCSEmailToSmsApiErrorDomain code:kCSEmailToSmsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -434,7 +436,7 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -442,7 +444,9 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = strippedString;
+    if (stripString) {
+        formParams[@"strip-string"] = stripString;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"

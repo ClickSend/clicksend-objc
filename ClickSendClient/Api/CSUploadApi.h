@@ -25,7 +25,7 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 /// Upload File
 /// Upload File
 ///
-/// @param content Base64-encoded file contents
+/// @param content Your base64 encoded file.
 /// @param convert 
 /// 
 ///  code:200 message:"SUCCESS",

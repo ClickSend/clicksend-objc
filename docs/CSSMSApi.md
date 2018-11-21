@@ -328,7 +328,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* url = url_example; // Your url
+NSString* url = @"url_example"; // Your url.
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -348,7 +348,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **NSString***| Your url | 
+ **url** | **NSString***| Your url. | 
 
 ### Return type
 
@@ -360,7 +360,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -607,7 +607,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* url = url_example; // Your url
+NSString* url = @"url_example"; // Your url.
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -627,7 +627,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **NSString***| Your url | 
+ **url** | **NSString***| Your url. | 
 
 ### Return type
 
@@ -639,7 +639,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

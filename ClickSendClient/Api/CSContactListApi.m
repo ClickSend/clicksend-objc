@@ -2,6 +2,7 @@
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
 #import "CSContactListImport.h"
+#import "CSFields.h"
 
 
 @interface CSContactListApi ()
@@ -485,15 +486,29 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
 /// Remove duplicate contacts
 ///  @param listId Your list id 
 ///
+///  @param fields Fields model 
+///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) listsRemoveDuplicatesByListIdPutWithListId: (NSNumber*) listId
+    fields: (CSFields*) fields
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'listId' is set
     if (listId == nil) {
         NSParameterAssert(listId);
         if(handler) {
             NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"listId"] };
+            NSError* error = [NSError errorWithDomain:kCSContactListApiErrorDomain code:kCSContactListApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'fields' is set
+    if (fields == nil) {
+        NSParameterAssert(fields);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"fields"] };
             NSError* error = [NSError errorWithDomain:kCSContactListApiErrorDomain code:kCSContactListApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -528,6 +543,7 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    bodyParam = fields;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"

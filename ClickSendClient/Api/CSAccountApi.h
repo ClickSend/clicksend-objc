@@ -103,7 +103,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 /// Forgot password
 /// Forgot password
 ///
-/// @param username Username belonging to account
+/// @param username Username belonging to account.
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -141,7 +141,8 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 /// Forgot username
 /// Forgot username
 ///
-/// @param email Email belonging to account
+/// @param email Email belonging to account. (optional)
+/// @param phoneNumber Phone number belonging to account. (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -154,6 +155,7 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) forgotUsernamePutWithEmail: (NSString*) email
+    phoneNumber: (NSString*) phoneNumber
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

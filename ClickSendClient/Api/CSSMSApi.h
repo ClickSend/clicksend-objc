@@ -129,7 +129,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Create inbound sms
 /// Create inbound sms
 ///
-/// @param url Your url
+/// @param url Your url.
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -226,7 +226,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Add a delivery receipt
 /// Add a delivery receipt
 ///
-/// @param url Your url
+/// @param url Your url.
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",

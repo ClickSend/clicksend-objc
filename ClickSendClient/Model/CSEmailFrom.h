@@ -22,9 +22,9 @@
 
 @interface CSEmailFrom : CSObject
 
-/* Email of the recipient. 
+/* Email address id of the recipient. 
  */
-@property(nonatomic) NSString* email;
+@property(nonatomic) NSString* emailAddressId;
 /* Name of the recipient. [optional]
  */
 @property(nonatomic) NSString* name;

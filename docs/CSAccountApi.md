@@ -247,7 +247,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* username = username_example; // Username belonging to account
+NSString* username = @"username_example"; // Username belonging to account.
 
 CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
@@ -267,7 +267,7 @@ CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **NSString***| Username belonging to account | 
+ **username** | **NSString***| Username belonging to account. | 
 
 ### Return type
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -342,6 +342,7 @@ Name | Type | Description  | Notes
 # **forgotUsernamePut**
 ```objc
 -(NSURLSessionTask*) forgotUsernamePutWithEmail: (NSString*) email
+    phoneNumber: (NSString*) phoneNumber
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -352,12 +353,14 @@ Forgot username
 ### Example 
 ```objc
 
-NSString* email = email_example; // Email belonging to account
+NSString* email = @"email_example"; // Email belonging to account. (optional)
+NSString* phoneNumber = @"phoneNumber_example"; // Phone number belonging to account. (optional)
 
 CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 // Forgot username
 [apiInstance forgotUsernamePutWithEmail:email
+              phoneNumber:phoneNumber
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -372,7 +375,8 @@ CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **email** | **NSString***| Email belonging to account | 
+ **email** | **NSString***| Email belonging to account. | [optional] 
+ **phoneNumber** | **NSString***| Phone number belonging to account. | [optional] 
 
 ### Return type
 
@@ -384,7 +388,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

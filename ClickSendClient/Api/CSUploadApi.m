@@ -51,7 +51,7 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
 ///
 /// Upload File
 /// Upload File
-///  @param content Base64-encoded file contents 
+///  @param content Your base64 encoded file. 
 ///
 ///  @param convert  
 ///
@@ -102,7 +102,7 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -110,7 +110,9 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = content;
+    if (content) {
+        formParams[@"content"] = content;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

@@ -26,7 +26,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* content = content_example; // Base64-encoded file contents
+NSString* content = @"content_example"; // Your base64 encoded file.
 NSString* convert = @"convert_example"; // 
 
 CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
@@ -48,7 +48,7 @@ CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content** | **NSString***| Base64-encoded file contents | 
+ **content** | **NSString***| Your base64 encoded file. | 
  **convert** | **NSString***|  | 
 
 ### Return type
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

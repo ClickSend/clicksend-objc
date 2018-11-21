@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "CSContactListImport.h"
+#import "CSFields.h"
 #import "CSApi.h"
 
 /**
@@ -147,6 +148,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 /// Remove duplicate contacts
 ///
 /// @param listId Your list id
+/// @param fields Fields model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -159,6 +161,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) listsRemoveDuplicatesByListIdPutWithListId: (NSNumber*) listId
+    fields: (CSFields*) fields
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

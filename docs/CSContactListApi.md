@@ -358,6 +358,7 @@ Name | Type | Description  | Notes
 # **listsRemoveDuplicatesByListIdPut**
 ```objc
 -(NSURLSessionTask*) listsRemoveDuplicatesByListIdPutWithListId: (NSNumber*) listId
+    fields: (CSFields*) fields
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -374,11 +375,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 
 NSNumber* listId = @56; // Your list id
+CSFields* fields = [[CSFields alloc] init]; // Fields model
 
 CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 
 // Remove duplicate contacts
 [apiInstance listsRemoveDuplicatesByListIdPutWithListId:listId
+              fields:fields
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -394,6 +397,7 @@ CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **NSNumber***| Your list id | 
+ **fields** | [**CSFields***](CSFields.md)| Fields model | 
 
 ### Return type
 

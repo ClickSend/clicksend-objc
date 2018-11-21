@@ -379,7 +379,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Create inbound sms
 /// Create inbound sms
-///  @param url Your url 
+///  @param url Your url. 
 ///
 ///  @returns NSString*
 ///
@@ -413,7 +413,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -421,7 +421,9 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = url;
+    if (url) {
+        formParams[@"url"] = url;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"
@@ -697,7 +699,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Add a delivery receipt
 /// Add a delivery receipt
-///  @param url Your url 
+///  @param url Your url. 
 ///
 ///  @returns NSString*
 ///
@@ -731,7 +733,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -739,7 +741,9 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = url;
+    if (url) {
+        formParams[@"url"] = url;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

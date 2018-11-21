@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 # **smsEmailSmsStrippedStringPost**
 ```objc
--(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStrippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStripString: (NSString*) stripString
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -255,12 +255,12 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* strippedString = strippedString_example; // String to be stripped.
+NSString* stripString = @"stripString_example"; // String to be stripped.
 
 CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 // Create email to sms stripped string rule
-[apiInstance smsEmailSmsStrippedStringPostWithStrippedString:strippedString
+[apiInstance smsEmailSmsStrippedStringPostWithStripString:stripString
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -275,7 +275,7 @@ CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **strippedString** | **NSString***| String to be stripped. | 
+ **stripString** | **NSString***| String to be stripped. | 
 
 ### Return type
 
@@ -287,15 +287,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **smsEmailSmsStrippedStringPut**
 ```objc
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithRuleId: (NSNumber*) ruleId
-    strippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStripString: (NSString*) stripString
+    ruleId: (NSNumber*) ruleId
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -311,14 +311,14 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* stripString = @"stripString_example"; // String to be stripped.
 NSNumber* ruleId = @56; // Your rule id
-NSString* strippedString = strippedString_example; // String to be stripped.
 
 CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 // Update email to sms stripped string rule
-[apiInstance smsEmailSmsStrippedStringPutWithRuleId:ruleId
-              strippedString:strippedString
+[apiInstance smsEmailSmsStrippedStringPutWithStripString:stripString
+              ruleId:ruleId
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -333,8 +333,8 @@ CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **stripString** | **NSString***| String to be stripped. | 
  **ruleId** | **NSNumber***| Your rule id | 
- **strippedString** | **NSString***| String to be stripped. | 
 
 ### Return type
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -149,7 +149,7 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/x-www-form-urlencoded"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"BasicAuth"];
@@ -157,7 +157,9 @@ NSInteger kCSEmailMarketingApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = emailAddress;
+    if (emailAddress) {
+        formParams[@"email_address"] = emailAddress;
+    }
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

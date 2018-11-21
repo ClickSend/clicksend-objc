@@ -97,7 +97,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* emailAddress = emailAddress_example; // Email to be allowed.
+NSString* emailAddress = @"emailAddress_example"; // Email to be allowed.
 
 CSEmailMarketingApi*apiInstance = [[CSEmailMarketingApi alloc] init];
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

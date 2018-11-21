@@ -317,7 +317,7 @@ NSInteger kCSUserEmailTemplatesApiMissingParamErrorCode = 234513;
     bodyParam = emailTemplate;
 
     return [self.apiClient requestWithPath: resourcePath
-                                    method: @"POST"
+                                    method: @"PUT"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams

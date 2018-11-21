@@ -54,6 +54,7 @@ Import the following:
 #import <ClickSendClient/CSEmailTemplateUpdate.h>
 #import <ClickSendClient/CSFaxMessage.h>
 #import <ClickSendClient/CSFaxMessageCollection.h>
+#import <ClickSendClient/CSFields.h>
 #import <ClickSendClient/CSInboundFAXRule.h>
 #import <ClickSendClient/CSInboundSMSRule.h>
 #import <ClickSendClient/CSMmsCampaign.h>

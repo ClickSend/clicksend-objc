@@ -104,7 +104,7 @@ extern NSInteger kCSEmailToSmsApiMissingParamErrorCode;
 /// Create email to sms stripped string rule
 /// Create email to sms stripped string rules
 ///
-/// @param strippedString String to be stripped.
+/// @param stripString String to be stripped.
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -116,15 +116,15 @@ extern NSInteger kCSEmailToSmsApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStrippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPostWithStripString: (NSString*) stripString
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Update email to sms stripped string rule
 /// Update email to sms stripped string rule
 ///
+/// @param stripString String to be stripped.
 /// @param ruleId Your rule id
-/// @param strippedString String to be stripped.
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -136,8 +136,8 @@ extern NSInteger kCSEmailToSmsApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithRuleId: (NSNumber*) ruleId
-    strippedString: (NSString*) strippedString
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStripString: (NSString*) stripString
+    ruleId: (NSNumber*) ruleId
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
