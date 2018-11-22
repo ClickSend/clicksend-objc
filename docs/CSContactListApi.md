@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 # **listsByListIdPut**
 ```objc
 -(NSURLSessionTask*) listsByListIdPutWithListId: (NSNumber*) listId
-    listName: (NSString*) listName
+    list: (NSArray) list
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -143,13 +143,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 
 NSNumber* listId = @56; // Your list id
-NSString* listName = listName_example; // Your new list name
+NSArray list = [[NSArray alloc] init]; // List model
 
 CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 
 // Update specific contact list
 [apiInstance listsByListIdPutWithListId:listId
-              listName:listName
+              list:list
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -165,7 +165,7 @@ CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **listId** | **NSNumber***| Your list id | 
- **listName** | **NSString***| Your new list name | 
+ **list** | [**NSArray**](NSArray.md)| List model | 
 
 ### Return type
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 # **listsPost**
 ```objc
--(NSURLSessionTask*) listsPostWithListName: (NSString*) listName
+-(NSURLSessionTask*) listsPostWithList: (NSArray) list
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -318,12 +318,12 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* listName = listName_example; // Your contact list name
+NSArray list = [[NSArray alloc] init]; // List model
 
 CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 
 // Create new contact list
-[apiInstance listsPostWithListName:listName
+[apiInstance listsPostWithList:list
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -338,7 +338,7 @@ CSContactListApi*apiInstance = [[CSContactListApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listName** | **NSString***| Your contact list name | 
+ **list** | [**NSArray**](NSArray.md)| List model | 
 
 ### Return type
 

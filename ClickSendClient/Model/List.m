@@ -1,6 +1,6 @@
-#import "CSStrippedString.h"
+#import "List.h"
 
-@implementation CSStrippedString
+@implementation List
 
 - (instancetype)init {
   self = [super init];
@@ -34,7 +34,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"stripString": @"strip_string" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"listName": @"list_name" }];
 }
 
 /**

@@ -4,7 +4,7 @@ All URIs are relative to *https://rest.clicksend.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postLettersExportGet**](CSPostLetterApi.md#postlettersexportget) | **GET** /post/letters/export | export post letter history
+[**postLettersExportGet**](CSPostLetterApi.md#postlettersexportget) | **GET** /post/letters/history/export | export post letter history
 [**postLettersHistoryGet**](CSPostLetterApi.md#postlettershistoryget) | **GET** /post/letters/history | Get all post letter history
 [**postLettersPricePost**](CSPostLetterApi.md#postletterspricepost) | **POST** /post/letters/price | Calculate post letter price
 [**postLettersSendPost**](CSPostLetterApi.md#postletterssendpost) | **POST** /post/letters/send | Send post letter

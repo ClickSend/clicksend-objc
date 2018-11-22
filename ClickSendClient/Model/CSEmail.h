@@ -40,9 +40,8 @@
 /* Array of Bcc Recipient items. [optional]
  */
 @property(nonatomic) NSArray<CSEmailRecipient>* bcc;
-/* From Email object. 
- */
-@property(nonatomic) NSArray<CSEmailFrom>* from;
+
+@property(nonatomic) CSEmailFrom* from;
 /* Subject of the email. [optional]
  */
 @property(nonatomic) NSString* subject;

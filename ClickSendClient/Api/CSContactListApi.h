@@ -66,7 +66,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 /// Update specific contact list
 ///
 /// @param listId Your list id
-/// @param listName Your new list name
+/// @param list List model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -79,7 +79,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) listsByListIdPutWithListId: (NSNumber*) listId
-    listName: (NSString*) listName
+    list: (NSArray) list
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -128,7 +128,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 /// Create new contact list
 /// Create new contact list
 ///
-/// @param listName Your contact list name
+/// @param list List model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -140,7 +140,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) listsPostWithListName: (NSString*) listName
+-(NSURLSessionTask*) listsPostWithList: (NSArray) list
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

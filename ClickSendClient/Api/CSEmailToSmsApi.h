@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "CSEmailSMSAddress.h"
 #import "CSStrippedString.h"
-#import "CSUrl.h"
 #import "CSApi.h"
 
 /**
@@ -125,7 +124,7 @@ extern NSInteger kCSEmailToSmsApiMissingParamErrorCode;
 /// Update email to sms stripped string rule
 /// Update email to sms stripped string rule
 ///
-/// @param url Url model
+/// @param strippedString StrippedString model
 /// @param ruleId Your rule id
 /// 
 ///  code:200 message:"SUCCESS",
@@ -138,7 +137,7 @@ extern NSInteger kCSEmailToSmsApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithUrl: (CSUrl*) url
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStrippedString: (CSStrippedString*) strippedString
     ruleId: (NSNumber*) ruleId
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

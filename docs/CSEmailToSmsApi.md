@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 # **smsEmailSmsStrippedStringPut**
 ```objc
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithUrl: (CSUrl*) url
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStrippedString: (CSStrippedString*) strippedString
     ruleId: (NSNumber*) ruleId
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -311,13 +311,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-CSUrl* url = [[CSUrl alloc] init]; // Url model
+CSStrippedString* strippedString = [[CSStrippedString alloc] init]; // StrippedString model
 NSNumber* ruleId = @56; // Your rule id
 
 CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 // Update email to sms stripped string rule
-[apiInstance smsEmailSmsStrippedStringPutWithUrl:url
+[apiInstance smsEmailSmsStrippedStringPutWithStrippedString:strippedString
               ruleId:ruleId
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -333,7 +333,7 @@ CSEmailToSmsApi*apiInstance = [[CSEmailToSmsApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | [**CSUrl***](CSUrl.md)| Url model | 
+ **strippedString** | [**CSStrippedString***](CSStrippedString.md)| StrippedString model | 
  **ruleId** | **NSNumber***| Your rule id | 
 
 ### Return type

@@ -35,6 +35,7 @@ Import the following:
 #import <ClickSendClient/CSApiClient.h>
 #import <ClickSendClient/CSDefaultConfiguration.h>
 // load models
+#import <ClickSendClient/List.h>
 #import <ClickSendClient/CSAccount.h>
 #import <ClickSendClient/CSAccountForgotPasswordVerify.h>
 #import <ClickSendClient/CSAccountVerify.h>

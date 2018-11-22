@@ -191,12 +191,12 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
 /// Update specific contact list
 ///  @param listId Your list id 
 ///
-///  @param listName Your new list name 
+///  @param list List model 
 ///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) listsByListIdPutWithListId: (NSNumber*) listId
-    listName: (NSString*) listName
+    list: (NSArray) list
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'listId' is set
     if (listId == nil) {
@@ -209,11 +209,11 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'listName' is set
-    if (listName == nil) {
-        NSParameterAssert(listName);
+    // verify the required parameter 'list' is set
+    if (list == nil) {
+        NSParameterAssert(list);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"listName"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"list"] };
             NSError* error = [NSError errorWithDomain:kCSContactListApiErrorDomain code:kCSContactListApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -248,7 +248,7 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = listName;
+    bodyParam = list;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
@@ -418,17 +418,17 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
 ///
 /// Create new contact list
 /// Create new contact list
-///  @param listName Your contact list name 
+///  @param list List model 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) listsPostWithListName: (NSString*) listName
+-(NSURLSessionTask*) listsPostWithList: (NSArray) list
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'listName' is set
-    if (listName == nil) {
-        NSParameterAssert(listName);
+    // verify the required parameter 'list' is set
+    if (list == nil) {
+        NSParameterAssert(list);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"listName"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"list"] };
             NSError* error = [NSError errorWithDomain:kCSContactListApiErrorDomain code:kCSContactListApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -460,7 +460,7 @@ NSInteger kCSContactListApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = listName;
+    bodyParam = list;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

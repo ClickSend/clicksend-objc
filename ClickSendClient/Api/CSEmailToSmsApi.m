@@ -3,7 +3,6 @@
 #import "CSApiClient.h"
 #import "CSEmailSMSAddress.h"
 #import "CSStrippedString.h"
-#import "CSUrl.h"
 
 
 @interface CSEmailToSmsApi ()
@@ -385,20 +384,20 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
 ///
 /// Update email to sms stripped string rule
 /// Update email to sms stripped string rule
-///  @param url Url model 
+///  @param strippedString StrippedString model 
 ///
 ///  @param ruleId Your rule id 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithUrl: (CSUrl*) url
+-(NSURLSessionTask*) smsEmailSmsStrippedStringPutWithStrippedString: (CSStrippedString*) strippedString
     ruleId: (NSNumber*) ruleId
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'url' is set
-    if (url == nil) {
-        NSParameterAssert(url);
+    // verify the required parameter 'strippedString' is set
+    if (strippedString == nil) {
+        NSParameterAssert(strippedString);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"url"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"strippedString"] };
             NSError* error = [NSError errorWithDomain:kCSEmailToSmsApiErrorDomain code:kCSEmailToSmsApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -444,7 +443,7 @@ NSInteger kCSEmailToSmsApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = url;
+    bodyParam = strippedString;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"

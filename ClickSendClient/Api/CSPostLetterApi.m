@@ -69,7 +69,7 @@ NSInteger kCSPostLetterApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/post/letters/export"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/post/letters/history/export"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
