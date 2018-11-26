@@ -57,6 +57,7 @@ Import the following:
 #import <ClickSendClient/CSFaxMessage.h>
 #import <ClickSendClient/CSFaxMessageCollection.h>
 #import <ClickSendClient/CSFields.h>
+#import <ClickSendClient/CSFieldsFields.h>
 #import <ClickSendClient/CSForgotPassword.h>
 #import <ClickSendClient/CSForgotUsername.h>
 #import <ClickSendClient/CSInboundFAXRule.h>

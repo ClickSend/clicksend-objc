@@ -14,6 +14,9 @@
 */
 
 
+#import "CSFieldsFields.h"
+@protocol CSFieldsFields;
+@class CSFieldsFields;
 
 
 
@@ -22,53 +25,7 @@
 
 @interface CSFields : CSObject
 
-/* Your phone number in E.164 format. Must be provided if no fax number or email. [optional]
- */
-@property(nonatomic) NSString* phoneNumber;
-/*  [optional]
- */
-@property(nonatomic) NSString* custom1;
-/* Your email. Must be provided if no phone number or fax number. [optional]
- */
-@property(nonatomic) NSString* email;
-/* Your fax number. Must be provided if no phone number or email. [optional]
- */
-@property(nonatomic) NSString* faxNumber;
-/* Your first name. [optional]
- */
-@property(nonatomic) NSString* firstName;
-/* Your street address [optional]
- */
-@property(nonatomic) NSString* addressLine1;
-/*  [optional]
- */
-@property(nonatomic) NSString* addressLine2;
-/* Your nearest city [optional]
- */
-@property(nonatomic) NSString* addressCity;
-/* Your current state [optional]
- */
-@property(nonatomic) NSString* addressState;
-/* Your current postcode [optional]
- */
-@property(nonatomic) NSString* addressPostalCode;
-/* Your current country [optional]
- */
-@property(nonatomic) NSString* addressCountry;
-/* Your organisation name [optional]
- */
-@property(nonatomic) NSString* organizationName;
-/*  [optional]
- */
-@property(nonatomic) NSString* custom2;
-/*  [optional]
- */
-@property(nonatomic) NSString* custom3;
-/*  [optional]
- */
-@property(nonatomic) NSString* custom4;
-/* Your last name [optional]
- */
-@property(nonatomic) NSString* lastName;
+
+@property(nonatomic) CSFieldsFields* fields;
 
 @end
