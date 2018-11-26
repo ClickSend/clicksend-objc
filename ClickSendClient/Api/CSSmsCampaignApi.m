@@ -69,7 +69,7 @@ NSInteger kCSSmsCampaignApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms-campaign/{sms_campaign_id}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms-campaigns/{sms_campaign_id}"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (smsCampaignId != nil) {
