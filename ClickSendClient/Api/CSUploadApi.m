@@ -52,15 +52,26 @@ NSInteger kCSUploadApiMissingParamErrorCode = 234513;
 ///
 /// Upload File
 /// Upload File
-///  @param convert  
+///  @param uploadFile Your file to be uploaded 
 ///
-///  @param uploadFile  (optional)
+///  @param convert  
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
-    uploadFile: (CSUploadFile*) uploadFile
+-(NSURLSessionTask*) uploadsPostWithUploadFile: (CSUploadFile*) uploadFile
+    convert: (NSString*) convert
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'uploadFile' is set
+    if (uploadFile == nil) {
+        NSParameterAssert(uploadFile);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uploadFile"] };
+            NSError* error = [NSError errorWithDomain:kCSUploadApiErrorDomain code:kCSUploadApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     // verify the required parameter 'convert' is set
     if (convert == nil) {
         NSParameterAssert(convert);

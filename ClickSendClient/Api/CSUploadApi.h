@@ -26,8 +26,8 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 /// Upload File
 /// Upload File
 ///
+/// @param uploadFile Your file to be uploaded
 /// @param convert 
-/// @param uploadFile  (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -39,8 +39,8 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
-    uploadFile: (CSUploadFile*) uploadFile
+-(NSURLSessionTask*) uploadsPostWithUploadFile: (CSUploadFile*) uploadFile
+    convert: (NSString*) convert
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

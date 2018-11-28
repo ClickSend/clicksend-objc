@@ -9,8 +9,8 @@ Method | HTTP request | Description
 
 # **uploadsPost**
 ```objc
--(NSURLSessionTask*) uploadsPostWithConvert: (NSString*) convert
-    uploadFile: (CSUploadFile*) uploadFile
+-(NSURLSessionTask*) uploadsPostWithUploadFile: (CSUploadFile*) uploadFile
+    convert: (NSString*) convert
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -26,14 +26,14 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+CSUploadFile* uploadFile = [[CSUploadFile alloc] init]; // Your file to be uploaded
 NSString* convert = @"convert_example"; // 
-CSUploadFile* uploadFile = [[CSUploadFile alloc] init]; //  (optional)
 
 CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
 
 // Upload File
-[apiInstance uploadsPostWithConvert:convert
-              uploadFile:uploadFile
+[apiInstance uploadsPostWithUploadFile:uploadFile
+              convert:convert
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -48,8 +48,8 @@ CSUploadApi*apiInstance = [[CSUploadApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **uploadFile** | [**CSUploadFile***](CSUploadFile.md)| Your file to be uploaded | 
  **convert** | **NSString***|  | 
- **uploadFile** | [**CSUploadFile***](CSUploadFile.md)|  | [optional] 
 
 ### Return type
 

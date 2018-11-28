@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **detectAddressPost**
 ```objc
--(NSURLSessionTask*) detectAddressPostWithContent: (NSString*) content
+-(NSURLSessionTask*) detectAddressPostWithUploadFile: (CSUploadFile*) uploadFile
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -25,12 +25,12 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* content = content_example; // Base64-encoded file contents
+CSUploadFile* uploadFile = [[CSUploadFile alloc] init]; // Your file to be uploaded
 
 CSDetectAddressApi*apiInstance = [[CSDetectAddressApi alloc] init];
 
 // Detects address in uploaded file.
-[apiInstance detectAddressPostWithContent:content
+[apiInstance detectAddressPostWithUploadFile:uploadFile
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -45,7 +45,7 @@ CSDetectAddressApi*apiInstance = [[CSDetectAddressApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content** | **NSString***| Base64-encoded file contents | 
+ **uploadFile** | [**CSUploadFile***](CSUploadFile.md)| Your file to be uploaded | 
 
 ### Return type
 

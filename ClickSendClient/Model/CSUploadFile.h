@@ -22,7 +22,7 @@
 
 @interface CSUploadFile : CSObject
 
-/* Your base64 encoded file. 
+/* Your base64 encoded file string. 
  */
 @property(nonatomic) NSString* content;
 
