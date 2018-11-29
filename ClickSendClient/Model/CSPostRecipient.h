@@ -28,7 +28,7 @@
 /* First line of address 
  */
 @property(nonatomic) NSString* addressLine1;
-/* Second line of address 
+/* Second line of address [optional]
  */
 @property(nonatomic) NSString* addressLine2;
 /* City 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **addressName** | **NSString*** | Name of address | 
 **addressLine1** | **NSString*** | First line of address | 
-**addressLine2** | **NSString*** | Second line of address | 
+**addressLine2** | **NSString*** | Second line of address | [optional] 
 **addressCity** | **NSString*** | City | 
 **addressState** | **NSString*** | State | 
 **addressPostalCode** | **NSString*** | Postal code | 
