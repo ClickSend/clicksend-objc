@@ -9,6 +9,7 @@
     self.templateUsed = @0;
     self.duplex = @0;
     self.colour = @0;
+    self.priorityPost = @0;
     self.source = @"sdk";
     
   }
@@ -38,7 +39,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fileUrl": @"file_url", @"recipients": @"recipients", @"templateUsed": @"template_used", @"duplex": @"duplex", @"colour": @"colour", @"source": @"source" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fileUrl": @"file_url", @"recipients": @"recipients", @"templateUsed": @"template_used", @"duplex": @"duplex", @"colour": @"colour", @"priorityPost": @"priority_post", @"source": @"source" }];
 }
 
 /**
@@ -48,7 +49,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"templateUsed", @"duplex", @"colour", @"source"];
+  NSArray *optionalProperties = @[@"templateUsed", @"duplex", @"colour", @"priorityPost", @"source"];
   return [optionalProperties containsObject:propertyName];
 }
 

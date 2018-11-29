@@ -40,6 +40,9 @@
 /* Whether letter is in colour [optional]
  */
 @property(nonatomic) NSNumber* colour;
+/* Whether letter is priority [optional]
+ */
+@property(nonatomic) NSNumber* priorityPost;
 /* Source being sent from [optional]
  */
 @property(nonatomic) NSString* source;
