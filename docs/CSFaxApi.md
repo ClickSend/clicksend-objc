@@ -198,8 +198,10 @@ Name | Type | Description  | Notes
 
 # **faxReceiptsGet**
 ```objc
--(NSURLSessionTask*) faxReceiptsGetWithCompletionHandler: 
-        (void (^)(NSString* output, NSError* error)) handler;
+-(NSURLSessionTask*) faxReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
+    limit: (NSNumber*) limit
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
 Get List of Fax Receipts
@@ -214,12 +216,17 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Your keyword or query.
+NSNumber* page = @1; // Page number (optional) (default to 1)
+NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
 
 // Get List of Fax Receipts
-[apiInstance faxReceiptsGetWithCompletionHandler: 
-          ^(NSString* output, NSError* error) {
+[apiInstance faxReceiptsGetWithQ:q
+              page:page
+              limit:limit
+          completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -230,7 +237,12 @@ CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Your keyword or query. | 
+ **page** | **NSNumber***| Page number | [optional] [default to 1]
+ **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
 ### Return type
 

@@ -317,20 +317,37 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all inbound sms
 /// Get all inbound sms
+///  @param q Your keyword or query. 
+///
 ///  @param page Page number (optional, default to 1)
 ///
 ///  @param limit Number of records per page (optional, default to 10)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsInboundGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsInboundGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'q' is set
+    if (q == nil) {
+        NSParameterAssert(q);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
+            NSError* error = [NSError errorWithDomain:kCSSMSApiErrorDomain code:kCSSMSApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/inbound"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (q != nil) {
+        queryParams[@"q"] = q;
+    }
     if (page != nil) {
         queryParams[@"page"] = page;
     }
@@ -635,20 +652,37 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all delivery receipts
 /// Get all delivery receipts
+///  @param q Your keyword or query. 
+///
 ///  @param page Page number (optional, default to 1)
 ///
 ///  @param limit Number of records per page (optional, default to 10)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'q' is set
+    if (q == nil) {
+        NSParameterAssert(q);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
+            NSError* error = [NSError errorWithDomain:kCSSMSApiErrorDomain code:kCSSMSApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/receipts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (q != nil) {
+        queryParams[@"q"] = q;
+    }
     if (page != nil) {
         queryParams[@"page"] = page;
     }

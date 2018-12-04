@@ -337,20 +337,37 @@ NSInteger kCSEmailDeliveryReceiptRulesApiMissingParamErrorCode = 234513;
 ///
 /// Get all email delivery receipt automations
 /// Get all email delivery receipt automations
+///  @param q Your keyword or query. 
+///
 ///  @param page Page number (optional, default to 1)
 ///
 ///  @param limit Number of records per page (optional, default to 10)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) emailDeliveryReceiptAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) emailDeliveryReceiptAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'q' is set
+    if (q == nil) {
+        NSParameterAssert(q);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
+            NSError* error = [NSError errorWithDomain:kCSEmailDeliveryReceiptRulesApiErrorDomain code:kCSEmailDeliveryReceiptRulesApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/automations/email/receipts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (q != nil) {
+        queryParams[@"q"] = q;
+    }
     if (page != nil) {
         queryParams[@"page"] = page;
     }

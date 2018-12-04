@@ -237,7 +237,8 @@ Name | Type | Description  | Notes
 
 # **smsDeliveryReceiptAutomationsGet**
 ```objc
--(NSURLSessionTask*) smsDeliveryReceiptAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsDeliveryReceiptAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -254,13 +255,15 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Your keyword or query.
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSSMSDeliveryReceiptRulesApi*apiInstance = [[CSSMSDeliveryReceiptRulesApi alloc] init];
 
 // Get all sms delivery receipt automations
-[apiInstance smsDeliveryReceiptAutomationsGetWithPage:page
+[apiInstance smsDeliveryReceiptAutomationsGetWithQ:q
+              page:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -276,6 +279,7 @@ CSSMSDeliveryReceiptRulesApi*apiInstance = [[CSSMSDeliveryReceiptRulesApi alloc]
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Your keyword or query. | 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 

@@ -22,24 +22,6 @@ extern NSInteger kCSStatisticsApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(CSApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
-/// Get mms statistics
-/// Get mms statistics
-///
-/// 
-///  code:200 message:"SUCCESS",
-///  code:400 message:"BAD_REQUEST",
-///  code:401 message:"UNAUTHORIZED",
-///  code:403 message:"FORBIDDEN",
-///  code:404 message:"NOT_FOUND",
-///  code:405 message:"METHOD_NOT_FOUND",
-///  code:429 message:"TOO_MANY_REQUESTS",
-///  code:0 message:"INTERNAL_SERVER_ERROR"
-///
-/// @return NSString*
--(NSURLSessionTask*) statisticsMmsGetWithCompletionHandler: 
-    (void (^)(NSString* output, NSError* error)) handler;
-
-
 /// Get sms statistics
 /// Get sms statistics
 ///

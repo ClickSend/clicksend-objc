@@ -104,6 +104,7 @@ extern NSInteger kCSFAXDeliveryReceiptRulesApiMissingParamErrorCode;
 /// Get all fax delivery receipt automations
 /// Get all fax delivery receipt automations
 ///
+/// @param q Your keyword or query.
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -117,7 +118,8 @@ extern NSInteger kCSFAXDeliveryReceiptRulesApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) faxDeliveryReceiptAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) faxDeliveryReceiptAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

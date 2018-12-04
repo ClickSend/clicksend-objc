@@ -6,10 +6,10 @@
   self = [super init];
   if (self) {
     // initialize property's default value, if any
+    self.priorityPost = @0;
     self.templateUsed = @0;
     self.duplex = @0;
     self.colour = @0;
-    self.priorityPost = @0;
     self.source = @"sdk";
     
   }
@@ -39,7 +39,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fileUrl": @"file_url", @"recipients": @"recipients", @"templateUsed": @"template_used", @"duplex": @"duplex", @"colour": @"colour", @"priorityPost": @"priority_post", @"source": @"source" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"fileUrl": @"file_url", @"priorityPost": @"priority_post", @"recipients": @"recipients", @"templateUsed": @"template_used", @"duplex": @"duplex", @"colour": @"colour", @"source": @"source" }];
 }
 
 /**
@@ -49,7 +49,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"templateUsed", @"duplex", @"colour", @"priorityPost", @"source"];
+  NSArray *optionalProperties = @[@"priorityPost", @"templateUsed", @"duplex", @"colour", @"source"];
   return [optionalProperties containsObject:propertyName];
 }
 

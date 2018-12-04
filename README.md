@@ -65,8 +65,6 @@ Import the following:
 #import <ClickSendClient/CSMmsCampaign.h>
 #import <ClickSendClient/CSMmsMessage.h>
 #import <ClickSendClient/CSMmsMessageCollection.h>
-#import <ClickSendClient/CSPostDirectMail.h>
-#import <ClickSendClient/CSPostDirectMailArea.h>
 #import <ClickSendClient/CSPostLetter.h>
 #import <ClickSendClient/CSPostPostcard.h>
 #import <ClickSendClient/CSPostRecipient.h>
@@ -101,7 +99,6 @@ Import the following:
 #import <ClickSendClient/CSMasterEmailTemplatesApi.h>
 #import <ClickSendClient/CSMmsCampaignApi.h>
 #import <ClickSendClient/CSNumberApi.h>
-#import <ClickSendClient/CSPostDirectMailApi.h>
 #import <ClickSendClient/CSPostLetterApi.h>
 #import <ClickSendClient/CSPostPostcardApi.h>
 #import <ClickSendClient/CSPostReturnAddressApi.h>

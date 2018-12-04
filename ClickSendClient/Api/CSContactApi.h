@@ -116,8 +116,6 @@ extern NSInteger kCSContactApiMissingParamErrorCode;
 ///
 /// @param contact Contact model
 /// @param listId List id
-/// @param page Page number (optional) (default to 1)
-/// @param limit Number of records per page (optional) (default to 10)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -131,8 +129,6 @@ extern NSInteger kCSContactApiMissingParamErrorCode;
 /// @return NSString*
 -(NSURLSessionTask*) listsContactsByListIdPostWithContact: (CSContact*) contact
     listId: (NSNumber*) listId
-    page: (NSNumber*) page
-    limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

@@ -109,6 +109,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Get all inbound sms
 /// Get all inbound sms
 ///
+/// @param q Your keyword or query.
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -122,7 +123,8 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsInboundGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsInboundGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
@@ -206,6 +208,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Get all delivery receipts
 /// Get all delivery receipts
 ///
+/// @param q Your keyword or query.
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -219,7 +222,8 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

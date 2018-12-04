@@ -93,6 +93,9 @@ extern NSInteger kCSFaxApiMissingParamErrorCode;
 /// Get List of Fax Receipts
 /// Get List of Fax Receipts
 ///
+/// @param q Your keyword or query.
+/// @param page Page number (optional) (default to 1)
+/// @param limit Number of records per page (optional) (default to 10)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -104,8 +107,10 @@ extern NSInteger kCSFaxApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) faxReceiptsGetWithCompletionHandler: 
-    (void (^)(NSString* output, NSError* error)) handler;
+-(NSURLSessionTask*) faxReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
+    limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
 /// Send a fax using supplied supported file-types.

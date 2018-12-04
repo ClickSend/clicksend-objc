@@ -28,6 +28,9 @@
 /* URL of file to send 
  */
 @property(nonatomic) NSString* fileUrl;
+/* Whether letter is priority [optional]
+ */
+@property(nonatomic) NSNumber* priorityPost;
 /* Array of PostRecipient models 
  */
 @property(nonatomic) NSArray<CSPostRecipient>* recipients;
@@ -40,9 +43,6 @@
 /* Whether letter is in colour [optional]
  */
 @property(nonatomic) NSNumber* colour;
-/* Whether letter is priority [optional]
- */
-@property(nonatomic) NSNumber* priorityPost;
 /* Source being sent from [optional]
  */
 @property(nonatomic) NSString* source;

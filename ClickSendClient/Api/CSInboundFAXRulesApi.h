@@ -104,6 +104,7 @@ extern NSInteger kCSInboundFAXRulesApiMissingParamErrorCode;
 /// Get all inbound fax automations
 /// Get all inbound fax automations
 ///
+/// @param q Your keyword or query.
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -117,7 +118,8 @@ extern NSInteger kCSInboundFAXRulesApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) faxInboundAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) faxInboundAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

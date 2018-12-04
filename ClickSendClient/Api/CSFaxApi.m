@@ -273,15 +273,43 @@ NSInteger kCSFaxApiMissingParamErrorCode = 234513;
 ///
 /// Get List of Fax Receipts
 /// Get List of Fax Receipts
+///  @param q Your keyword or query. 
+///
+///  @param page Page number (optional, default to 1)
+///
+///  @param limit Number of records per page (optional, default to 10)
+///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) faxReceiptsGetWithCompletionHandler: 
-    (void (^)(NSString* output, NSError* error)) handler {
+-(NSURLSessionTask*) faxReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
+    limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'q' is set
+    if (q == nil) {
+        NSParameterAssert(q);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
+            NSError* error = [NSError errorWithDomain:kCSFaxApiErrorDomain code:kCSFaxApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/fax/receipts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (q != nil) {
+        queryParams[@"q"] = q;
+    }
+    if (page != nil) {
+        queryParams[@"page"] = page;
+    }
+    if (limit != nil) {
+        queryParams[@"limit"] = limit;
+    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`

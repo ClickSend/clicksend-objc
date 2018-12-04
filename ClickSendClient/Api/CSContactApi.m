@@ -406,16 +406,10 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
 ///
 ///  @param listId List id 
 ///
-///  @param page Page number (optional, default to 1)
-///
-///  @param limit Number of records per page (optional, default to 10)
-///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) listsContactsByListIdPostWithContact: (CSContact*) contact
     listId: (NSNumber*) listId
-    page: (NSNumber*) page
-    limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'contact' is set
     if (contact == nil) {
@@ -447,12 +441,6 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
     }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (page != nil) {
-        queryParams[@"page"] = page;
-    }
-    if (limit != nil) {
-        queryParams[@"limit"] = limit;
-    }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];
     // HTTP header `Accept`

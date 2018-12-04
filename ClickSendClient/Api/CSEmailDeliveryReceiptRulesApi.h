@@ -104,6 +104,7 @@ extern NSInteger kCSEmailDeliveryReceiptRulesApiMissingParamErrorCode;
 /// Get all email delivery receipt automations
 /// Get all email delivery receipt automations
 ///
+/// @param q Your keyword or query.
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -117,7 +118,8 @@ extern NSInteger kCSEmailDeliveryReceiptRulesApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) emailDeliveryReceiptAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) emailDeliveryReceiptAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

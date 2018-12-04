@@ -350,7 +350,8 @@ Name | Type | Description  | Notes
 
 # **voiceReceiptsGet**
 ```objc
--(NSURLSessionTask*) voiceReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) voiceReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -367,13 +368,15 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Your keyword or query.
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
 
 // Get all voice receipts
-[apiInstance voiceReceiptsGetWithPage:page
+[apiInstance voiceReceiptsGetWithQ:q
+              page:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -389,6 +392,7 @@ CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Your keyword or query. | 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 

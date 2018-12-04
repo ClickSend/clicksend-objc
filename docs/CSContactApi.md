@@ -261,8 +261,6 @@ Name | Type | Description  | Notes
 ```objc
 -(NSURLSessionTask*) listsContactsByListIdPostWithContact: (CSContact*) contact
     listId: (NSNumber*) listId
-    page: (NSNumber*) page
-    limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -280,16 +278,12 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 CSContact* contact = [[CSContact alloc] init]; // Contact model
 NSNumber* listId = @56; // List id
-NSNumber* page = @1; // Page number (optional) (default to 1)
-NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSContactApi*apiInstance = [[CSContactApi alloc] init];
 
 // Create new contact
 [apiInstance listsContactsByListIdPostWithContact:contact
               listId:listId
-              page:page
-              limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -306,8 +300,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contact** | [**CSContact***](CSContact.md)| Contact model | 
  **listId** | **NSNumber***| List id | 
- **page** | **NSNumber***| Page number | [optional] [default to 1]
- **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
 ### Return type
 

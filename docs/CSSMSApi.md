@@ -253,7 +253,8 @@ Name | Type | Description  | Notes
 
 # **smsInboundGet**
 ```objc
--(NSURLSessionTask*) smsInboundGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsInboundGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -270,13 +271,15 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Your keyword or query.
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 // Get all inbound sms
-[apiInstance smsInboundGetWithPage:page
+[apiInstance smsInboundGetWithQ:q
+              page:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -292,6 +295,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Your keyword or query. | 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
@@ -532,7 +536,8 @@ Name | Type | Description  | Notes
 
 # **smsReceiptsGet**
 ```objc
--(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -549,13 +554,15 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Your keyword or query.
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 // Get all delivery receipts
-[apiInstance smsReceiptsGetWithPage:page
+[apiInstance smsReceiptsGetWithQ:q
+              page:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -571,6 +578,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Your keyword or query. | 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
