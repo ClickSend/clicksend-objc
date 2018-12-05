@@ -337,7 +337,7 @@ NSInteger kCSVoiceDeliveryReceiptRulesApiMissingParamErrorCode = 234513;
 ///
 /// Get all voice delivery receipt automations
 /// Get all voice delivery receipt automations
-///  @param q Your keyword or query. 
+///  @param q Your keyword or query. (optional)
 ///
 ///  @param page Page number (optional, default to 1)
 ///
@@ -349,17 +349,6 @@ NSInteger kCSVoiceDeliveryReceiptRulesApiMissingParamErrorCode = 234513;
     page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'q' is set
-    if (q == nil) {
-        NSParameterAssert(q);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
-            NSError* error = [NSError errorWithDomain:kCSVoiceDeliveryReceiptRulesApiErrorDomain code:kCSVoiceDeliveryReceiptRulesApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/automations/voice/receipts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];

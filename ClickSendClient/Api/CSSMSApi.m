@@ -317,7 +317,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all inbound sms
 /// Get all inbound sms
-///  @param q Your keyword or query. 
+///  @param q Your keyword or query. (optional)
 ///
 ///  @param page Page number (optional, default to 1)
 ///
@@ -329,17 +329,6 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'q' is set
-    if (q == nil) {
-        NSParameterAssert(q);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
-            NSError* error = [NSError errorWithDomain:kCSSMSApiErrorDomain code:kCSSMSApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/inbound"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
@@ -652,7 +641,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all delivery receipts
 /// Get all delivery receipts
-///  @param q Your keyword or query. 
+///  @param q Your keyword or query. (optional)
 ///
 ///  @param page Page number (optional, default to 1)
 ///
@@ -664,17 +653,6 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'q' is set
-    if (q == nil) {
-        NSParameterAssert(q);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"q"] };
-            NSError* error = [NSError errorWithDomain:kCSSMSApiErrorDomain code:kCSSMSApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/receipts"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];

@@ -255,7 +255,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* q = @"q_example"; // Your keyword or query.
+NSString* q = @"q_example"; // Your keyword or query. (optional)
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
@@ -279,7 +279,7 @@ CSEmailDeliveryReceiptRulesApi*apiInstance = [[CSEmailDeliveryReceiptRulesApi al
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **NSString***| Your keyword or query. | 
+ **q** | **NSString***| Your keyword or query. | [optional] 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
