@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**smsHistoryGet**](CSSMSApi.md#smshistoryget) | **GET** /sms/history | Get all sms history
 [**smsInboundGet**](CSSMSApi.md#smsinboundget) | **GET** /sms/inbound | Get all inbound sms
 [**smsInboundPost**](CSSMSApi.md#smsinboundpost) | **POST** /sms/inbound | Create inbound sms
+[**smsInboundReadByMessageIdPut**](CSSMSApi.md#smsinboundreadbymessageidput) | **PUT** /sms/inbound-read/{message_id} | Mark inbound SMS as read
 [**smsInboundReadPut**](CSSMSApi.md#smsinboundreadput) | **PUT** /sms/inbound-read | Mark inbound SMS as read
 [**smsPricePost**](CSSMSApi.md#smspricepost) | **POST** /sms/price | Calculate sms price
 [**smsReceiptsByMessageIdGet**](CSSMSApi.md#smsreceiptsbymessageidget) | **GET** /sms/receipts/{message_id} | Get a Specific Delivery Receipt
@@ -369,9 +370,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **smsInboundReadByMessageIdPut**
+```objc
+-(NSURLSessionTask*) smsInboundReadByMessageIdPutWithMessageId: (NSString*) messageId
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Mark inbound SMS as read
+
+Mark specific inbound SMS as read
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+NSString* messageId = @"messageId_example"; // Message ID
+
+CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
+
+// Mark inbound SMS as read
+[apiInstance smsInboundReadByMessageIdPutWithMessageId:messageId
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSSMSApi->smsInboundReadByMessageIdPut: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageId** | **NSString***| Message ID | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **smsInboundReadPut**
 ```objc
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -387,7 +443,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* dateBefore = dateBefore_example; // An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
+NSNumber* dateBefore = 8.14; // An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -407,7 +463,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateBefore** | **NSString***| An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. | [optional] 
+ **dateBefore** | **NSNumber***| An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. | [optional] 
 
 ### Return type
 
@@ -536,8 +592,7 @@ Name | Type | Description  | Notes
 
 # **smsReceiptsGet**
 ```objc
--(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
-    page: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -554,15 +609,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* q = @"q_example"; // Your keyword or query. (optional)
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 // Get all delivery receipts
-[apiInstance smsReceiptsGetWithQ:q
-              page:page
+[apiInstance smsReceiptsGetWithPage:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -578,7 +631,6 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **NSString***| Your keyword or query. | [optional] 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
@@ -654,7 +706,7 @@ Name | Type | Description  | Notes
 
 # **smsReceiptsReadPut**
 ```objc
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -670,7 +722,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* dateBefore = dateBefore_example; // Mark all as read before this timestamp (optional)
+NSNumber* dateBefore = 8.14; // Mark all as read before this timestamp (optional)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -690,7 +742,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateBefore** | **NSString***| Mark all as read before this timestamp | [optional] 
+ **dateBefore** | **NSNumber***| Mark all as read before this timestamp | [optional] 
 
 ### Return type
 

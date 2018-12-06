@@ -451,12 +451,80 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 
 ///
 /// Mark inbound SMS as read
+/// Mark specific inbound SMS as read
+///  @param messageId Message ID 
+///
+///  @returns NSString*
+///
+-(NSURLSessionTask*) smsInboundReadByMessageIdPutWithMessageId: (NSString*) messageId
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'messageId' is set
+    if (messageId == nil) {
+        NSParameterAssert(messageId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"messageId"] };
+            NSError* error = [NSError errorWithDomain:kCSSMSApiErrorDomain code:kCSSMSApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/inbound-read/{message_id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (messageId != nil) {
+        pathParams[@"message_id"] = messageId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"BasicAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSString*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSString*)data, error);
+                                }
+                            }];
+}
+
+///
+/// Mark inbound SMS as read
 /// Mark all inbound SMS as read optionally before a certain date
 ///  @param dateBefore An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/inbound-read"];
 
@@ -641,16 +709,13 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all delivery receipts
 /// Get all delivery receipts
-///  @param q Your keyword or query. (optional)
-///
 ///  @param page Page number (optional, default to 1)
 ///
 ///  @param limit Number of records per page (optional, default to 10)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
-    page: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/receipts"];
@@ -658,9 +723,6 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (q != nil) {
-        queryParams[@"q"] = q;
-    }
     if (page != nil) {
         queryParams[@"page"] = page;
     }
@@ -780,7 +842,7 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/receipts-read"];
 

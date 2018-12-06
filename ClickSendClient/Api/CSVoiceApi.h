@@ -144,7 +144,6 @@ extern NSInteger kCSVoiceApiMissingParamErrorCode;
 /// Get all voice receipts
 /// Get all voice receipts
 ///
-/// @param q Your keyword or query. (optional)
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -158,8 +157,7 @@ extern NSInteger kCSVoiceApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) voiceReceiptsGetWithQ: (NSString*) q
-    page: (NSNumber*) page
+-(NSURLSessionTask*) voiceReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

@@ -198,8 +198,7 @@ Name | Type | Description  | Notes
 
 # **faxReceiptsGet**
 ```objc
--(NSURLSessionTask*) faxReceiptsGetWithQ: (NSString*) q
-    page: (NSNumber*) page
+-(NSURLSessionTask*) faxReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -216,15 +215,13 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSString* q = @"q_example"; // Your keyword or query. (optional)
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
 
 // Get List of Fax Receipts
-[apiInstance faxReceiptsGetWithQ:q
-              page:page
+[apiInstance faxReceiptsGetWithPage:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
@@ -240,7 +237,6 @@ CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **q** | **NSString***| Your keyword or query. | [optional] 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 

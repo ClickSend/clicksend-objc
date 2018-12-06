@@ -104,6 +104,7 @@ extern NSInteger kCSInboundSMSRulesApiMissingParamErrorCode;
 /// Get all inbound sms automations
 /// Get all inbound sms automations
 ///
+/// @param q Your keyword or query. (optional)
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -117,7 +118,8 @@ extern NSInteger kCSInboundSMSRulesApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsInboundAutomationsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) smsInboundAutomationsGetWithQ: (NSString*) q
+    page: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

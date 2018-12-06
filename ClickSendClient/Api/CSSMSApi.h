@@ -149,6 +149,25 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 
 
 /// Mark inbound SMS as read
+/// Mark specific inbound SMS as read
+///
+/// @param messageId Message ID
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) smsInboundReadByMessageIdPutWithMessageId: (NSString*) messageId
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Mark inbound SMS as read
 /// Mark all inbound SMS as read optionally before a certain date
 ///
 /// @param dateBefore An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
@@ -163,7 +182,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -208,7 +227,6 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Get all delivery receipts
 /// Get all delivery receipts
 ///
-/// @param q Your keyword or query. (optional)
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
 /// 
@@ -222,8 +240,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsReceiptsGetWithQ: (NSString*) q
-    page: (NSNumber*) page
+-(NSURLSessionTask*) smsReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
@@ -262,7 +279,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSString*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
