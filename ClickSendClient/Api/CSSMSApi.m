@@ -243,6 +243,8 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Get all sms history
 /// Get all sms history
+///  @param q Custom query Example: from:{number},status_code:201. (optional)
+///
 ///  @param dateFrom Start date (optional)
 ///
 ///  @param dateTo End date (optional)
@@ -253,7 +255,8 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsHistoryGetWithDateFrom: (NSNumber*) dateFrom
+-(NSURLSessionTask*) smsHistoryGetWithQ: (NSString*) q
+    dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
     page: (NSNumber*) page
     limit: (NSNumber*) limit
@@ -263,6 +266,9 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (q != nil) {
+        queryParams[@"q"] = q;
+    }
     if (dateFrom != nil) {
         queryParams[@"date_from"] = dateFrom;
     }

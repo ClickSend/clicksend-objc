@@ -85,6 +85,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Get all sms history
 /// Get all sms history
 ///
+/// @param q Custom query Example: from:{number},status_code:201. (optional)
 /// @param dateFrom Start date (optional)
 /// @param dateTo End date (optional)
 /// @param page Page number (optional) (default to 1)
@@ -100,7 +101,8 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsHistoryGetWithDateFrom: (NSNumber*) dateFrom
+-(NSURLSessionTask*) smsHistoryGetWithQ: (NSString*) q
+    dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
     page: (NSNumber*) page
     limit: (NSNumber*) limit

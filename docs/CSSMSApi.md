@@ -187,7 +187,8 @@ Name | Type | Description  | Notes
 
 # **smsHistoryGet**
 ```objc
--(NSURLSessionTask*) smsHistoryGetWithDateFrom: (NSNumber*) dateFrom
+-(NSURLSessionTask*) smsHistoryGetWithQ: (NSString*) q
+    dateFrom: (NSNumber*) dateFrom
     dateTo: (NSNumber*) dateTo
     page: (NSNumber*) page
     limit: (NSNumber*) limit
@@ -206,6 +207,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
+NSString* q = @"q_example"; // Custom query Example: from:{number},status_code:201. (optional)
 NSNumber* dateFrom = @56; // Start date (optional)
 NSNumber* dateTo = @56; // End date (optional)
 NSNumber* page = @1; // Page number (optional) (default to 1)
@@ -214,7 +216,8 @@ NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 // Get all sms history
-[apiInstance smsHistoryGetWithDateFrom:dateFrom
+[apiInstance smsHistoryGetWithQ:q
+              dateFrom:dateFrom
               dateTo:dateTo
               page:page
               limit:limit
@@ -232,6 +235,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **q** | **NSString***| Custom query Example: from:{number},status_code:201. | [optional] 
  **dateFrom** | **NSNumber***| Start date | [optional] 
  **dateTo** | **NSNumber***| End date | [optional] 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
