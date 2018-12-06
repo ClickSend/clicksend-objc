@@ -24,6 +24,6 @@
 
 /* An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. [optional]
  */
-@property(nonatomic) NSString* dateBefore;
+@property(nonatomic) NSNumber* dateBefore;
 
 @end
