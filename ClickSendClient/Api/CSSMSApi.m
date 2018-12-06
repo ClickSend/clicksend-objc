@@ -1,6 +1,7 @@
 #import "CSSMSApi.h"
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
+#import "CSDateBefore.h"
 #import "CSSmsMessageCollection.h"
 #import "CSSmsTemplate.h"
 #import "CSUrl.h"
@@ -520,11 +521,11 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Mark inbound SMS as read
 /// Mark all inbound SMS as read optionally before a certain date
-///  @param dateBefore An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
+///  @param dateBefore DateBefore model (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/inbound-read"];
 
@@ -838,11 +839,11 @@ NSInteger kCSSMSApiMissingParamErrorCode = 234513;
 ///
 /// Mark delivery receipts as read
 /// Mark delivery receipts as read
-///  @param dateBefore Mark all as read before this timestamp (optional)
+///  @param dateBefore DateBefore model (optional)
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/sms/receipts-read"];
 

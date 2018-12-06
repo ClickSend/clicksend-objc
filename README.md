@@ -44,6 +44,7 @@ Import the following:
 #import <ClickSendClient/CSContact.h>
 #import <ClickSendClient/CSContactListImport.h>
 #import <ClickSendClient/CSCreditCard.h>
+#import <ClickSendClient/CSDateBefore.h>
 #import <ClickSendClient/CSDeliveryIssue.h>
 #import <ClickSendClient/CSDeliveryReceiptRule.h>
 #import <ClickSendClient/CSEmail.h>

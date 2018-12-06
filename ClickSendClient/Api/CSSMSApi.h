@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "CSDateBefore.h"
 #import "CSSmsMessageCollection.h"
 #import "CSSmsTemplate.h"
 #import "CSUrl.h"
@@ -170,7 +171,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Mark inbound SMS as read
 /// Mark all inbound SMS as read optionally before a certain date
 ///
-/// @param dateBefore An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
+/// @param dateBefore DateBefore model (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -182,7 +183,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -267,7 +268,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 /// Mark delivery receipts as read
 /// Mark delivery receipts as read
 ///
-/// @param dateBefore Mark all as read before this timestamp (optional)
+/// @param dateBefore DateBefore model (optional)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -279,7 +280,7 @@ extern NSInteger kCSSMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

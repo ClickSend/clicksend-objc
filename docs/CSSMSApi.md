@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 # **smsInboundReadPut**
 ```objc
--(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsInboundReadPutWithDateBefore: (CSDateBefore*) dateBefore
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -443,7 +443,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSNumber* dateBefore = 8.14; // An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. (optional)
+CSDateBefore* dateBefore = [[CSDateBefore alloc] init]; // DateBefore model (optional)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -463,7 +463,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateBefore** | **NSNumber***| An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read. | [optional] 
+ **dateBefore** | [**CSDateBefore***](CSDateBefore.md)| DateBefore model | [optional] 
 
 ### Return type
 
@@ -706,7 +706,7 @@ Name | Type | Description  | Notes
 
 # **smsReceiptsReadPut**
 ```objc
--(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (NSNumber*) dateBefore
+-(NSURLSessionTask*) smsReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -722,7 +722,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-NSNumber* dateBefore = 8.14; // Mark all as read before this timestamp (optional)
+CSDateBefore* dateBefore = [[CSDateBefore alloc] init]; // DateBefore model (optional)
 
 CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
@@ -742,7 +742,7 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dateBefore** | **NSNumber***| Mark all as read before this timestamp | [optional] 
+ **dateBefore** | [**CSDateBefore***](CSDateBefore.md)| DateBefore model | [optional] 
 
 ### Return type
 
