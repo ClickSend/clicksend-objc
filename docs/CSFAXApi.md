@@ -1,73 +1,17 @@
-# CSMMSApi
+# CSFAXApi
 
 All URIs are relative to *https://rest.clicksend.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**mmsPricePost**](CSMMSApi.md#mmspricepost) | **POST** /mms/price | Get Price for MMS sent
-[**mmsReceiptsGet**](CSMMSApi.md#mmsreceiptsget) | **GET** /mms/receipts | Get all delivery receipts
-[**mmsReceiptsReadPut**](CSMMSApi.md#mmsreceiptsreadput) | **PUT** /mms/receipts-read | Mark delivery receipts as read
-[**mmsSendPost**](CSMMSApi.md#mmssendpost) | **POST** /mms/send | Send MMS
+[**faxReceiptsGet**](CSFAXApi.md#faxreceiptsget) | **GET** /fax/receipts | Get all delivery receipts
+[**faxReceiptsPost**](CSFAXApi.md#faxreceiptspost) | **POST** /fax/receipts | Add a delivery receipt
+[**faxReceiptsReadPut**](CSFAXApi.md#faxreceiptsreadput) | **PUT** /fax/receipts-read | Mark delivery receipts as read
 
 
-# **mmsPricePost**
+# **faxReceiptsGet**
 ```objc
--(NSURLSessionTask*) mmsPricePostWithMmsMessages: (CSMmsMessageCollection*) mmsMessages
-        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
-```
-
-Get Price for MMS sent
-
-Get Price for MMS sent
-
-### Example 
-```objc
-CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: BasicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-
-CSMmsMessageCollection* mmsMessages = [[CSMmsMessageCollection alloc] init]; // MmsMessageCollection model
-
-CSMMSApi*apiInstance = [[CSMMSApi alloc] init];
-
-// Get Price for MMS sent
-[apiInstance mmsPricePostWithMmsMessages:mmsMessages
-          completionHandler: ^(NSString* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling CSMMSApi->mmsPricePost: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mmsMessages** | [**CSMmsMessageCollection***](CSMmsMessageCollection.md)| MmsMessageCollection model | 
-
-### Return type
-
-**NSString***
-
-### Authorization
-
-[BasicAuth](../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **mmsReceiptsGet**
-```objc
--(NSURLSessionTask*) mmsReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) faxReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
@@ -87,17 +31,17 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
-CSMMSApi*apiInstance = [[CSMMSApi alloc] init];
+CSFAXApi*apiInstance = [[CSFAXApi alloc] init];
 
 // Get all delivery receipts
-[apiInstance mmsReceiptsGetWithPage:page
+[apiInstance faxReceiptsGetWithPage:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling CSMMSApi->mmsReceiptsGet: %@", error);
+                            NSLog(@"Error calling CSFAXApi->faxReceiptsGet: %@", error);
                         }
                     }];
 ```
@@ -124,9 +68,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **mmsReceiptsReadPut**
+# **faxReceiptsPost**
 ```objc
--(NSURLSessionTask*) mmsReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
+-(NSURLSessionTask*) faxReceiptsPostWithUrl: (CSUrl*) url
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Add a delivery receipt
+
+Add a delivery receipt
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+CSUrl* url = [[CSUrl alloc] init]; // Url model
+
+CSFAXApi*apiInstance = [[CSFAXApi alloc] init];
+
+// Add a delivery receipt
+[apiInstance faxReceiptsPostWithUrl:url
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSFAXApi->faxReceiptsPost: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **url** | [**CSUrl***](CSUrl.md)| Url model | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **faxReceiptsReadPut**
+```objc
+-(NSURLSessionTask*) faxReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -144,16 +143,16 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 CSDateBefore* dateBefore = [[CSDateBefore alloc] init]; // DateBefore model (optional)
 
-CSMMSApi*apiInstance = [[CSMMSApi alloc] init];
+CSFAXApi*apiInstance = [[CSFAXApi alloc] init];
 
 // Mark delivery receipts as read
-[apiInstance mmsReceiptsReadPutWithDateBefore:dateBefore
+[apiInstance faxReceiptsReadPutWithDateBefore:dateBefore
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling CSMMSApi->mmsReceiptsReadPut: %@", error);
+                            NSLog(@"Error calling CSFAXApi->faxReceiptsReadPut: %@", error);
                         }
                     }];
 ```
@@ -163,61 +162,6 @@ CSMMSApi*apiInstance = [[CSMMSApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **dateBefore** | [**CSDateBefore***](CSDateBefore.md)| DateBefore model | [optional] 
-
-### Return type
-
-**NSString***
-
-### Authorization
-
-[BasicAuth](../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **mmsSendPost**
-```objc
--(NSURLSessionTask*) mmsSendPostWithMmsMessages: (CSMmsMessageCollection*) mmsMessages
-        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
-```
-
-Send MMS
-
-Send MMS
-
-### Example 
-```objc
-CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: BasicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-
-CSMmsMessageCollection* mmsMessages = [[CSMmsMessageCollection alloc] init]; // MmsMessageCollection model
-
-CSMMSApi*apiInstance = [[CSMMSApi alloc] init];
-
-// Send MMS
-[apiInstance mmsSendPostWithMmsMessages:mmsMessages
-          completionHandler: ^(NSString* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling CSMMSApi->mmsSendPost: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mmsMessages** | [**CSMmsMessageCollection***](CSMmsMessageCollection.md)| MmsMessageCollection model | 
 
 ### Return type
 

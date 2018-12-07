@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "CSDateBefore.h"
-#import "CSMmsMessageCollection.h"
+#import "CSUrl.h"
 #import "CSApi.h"
 
 /**
@@ -17,31 +17,12 @@
 
 
 
-@interface CSMMSApi: NSObject <CSApi>
+@interface CSFAXApi: NSObject <CSApi>
 
-extern NSString* kCSMMSApiErrorDomain;
-extern NSInteger kCSMMSApiMissingParamErrorCode;
+extern NSString* kCSFAXApiErrorDomain;
+extern NSInteger kCSFAXApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(CSApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
-
-/// Get Price for MMS sent
-/// Get Price for MMS sent
-///
-/// @param mmsMessages MmsMessageCollection model
-/// 
-///  code:200 message:"SUCCESS",
-///  code:400 message:"BAD_REQUEST",
-///  code:401 message:"UNAUTHORIZED",
-///  code:403 message:"FORBIDDEN",
-///  code:404 message:"NOT_FOUND",
-///  code:405 message:"METHOD_NOT_FOUND",
-///  code:429 message:"TOO_MANY_REQUESTS",
-///  code:0 message:"INTERNAL_SERVER_ERROR"
-///
-/// @return NSString*
--(NSURLSessionTask*) mmsPricePostWithMmsMessages: (CSMmsMessageCollection*) mmsMessages
-    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
-
 
 /// Get all delivery receipts
 /// Get all delivery receipts
@@ -59,8 +40,27 @@ extern NSInteger kCSMMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) mmsReceiptsGetWithPage: (NSNumber*) page
+-(NSURLSessionTask*) faxReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Add a delivery receipt
+/// Add a delivery receipt
+///
+/// @param url Url model
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) faxReceiptsPostWithUrl: (CSUrl*) url
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -79,26 +79,7 @@ extern NSInteger kCSMMSApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) mmsReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
-    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
-
-
-/// Send MMS
-/// Send MMS
-///
-/// @param mmsMessages MmsMessageCollection model
-/// 
-///  code:200 message:"SUCCESS",
-///  code:400 message:"BAD_REQUEST",
-///  code:401 message:"UNAUTHORIZED",
-///  code:403 message:"FORBIDDEN",
-///  code:404 message:"NOT_FOUND",
-///  code:405 message:"METHOD_NOT_FOUND",
-///  code:429 message:"TOO_MANY_REQUESTS",
-///  code:0 message:"INTERNAL_SERVER_ERROR"
-///
-/// @return NSString*
--(NSURLSessionTask*) mmsSendPostWithMmsMessages: (CSMmsMessageCollection*) mmsMessages
+-(NSURLSessionTask*) faxReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

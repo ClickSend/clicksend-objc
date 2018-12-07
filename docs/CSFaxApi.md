@@ -7,7 +7,6 @@ Method | HTTP request | Description
 [**faxHistoryGet**](CSFaxApi.md#faxhistoryget) | **GET** /fax/history | Get a list of Fax History.
 [**faxPricePost**](CSFaxApi.md#faxpricepost) | **POST** /fax/price | Calculate Total Price for Fax Messages sent
 [**faxReceiptsByMessageIdGet**](CSFaxApi.md#faxreceiptsbymessageidget) | **GET** /fax/receipts/{message_id} | Get a single fax receipt based on message id.
-[**faxReceiptsGet**](CSFaxApi.md#faxreceiptsget) | **GET** /fax/receipts | Get List of Fax Receipts
 [**faxSendPost**](CSFaxApi.md#faxsendpost) | **POST** /fax/send | Send a fax using supplied supported file-types.
 
 
@@ -180,65 +179,6 @@ CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **messageId** | **NSString***| ID of the message receipt to retrieve | 
-
-### Return type
-
-**NSString***
-
-### Authorization
-
-[BasicAuth](../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **faxReceiptsGet**
-```objc
--(NSURLSessionTask*) faxReceiptsGetWithPage: (NSNumber*) page
-    limit: (NSNumber*) limit
-        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
-```
-
-Get List of Fax Receipts
-
-Get List of Fax Receipts
-
-### Example 
-```objc
-CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
-// Configure HTTP basic authorization (authentication scheme: BasicAuth)
-[apiConfig setUsername:@"YOUR_USERNAME"];
-[apiConfig setPassword:@"YOUR_PASSWORD"];
-
-
-NSNumber* page = @1; // Page number (optional) (default to 1)
-NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
-
-CSFaxApi*apiInstance = [[CSFaxApi alloc] init];
-
-// Get List of Fax Receipts
-[apiInstance faxReceiptsGetWithPage:page
-              limit:limit
-          completionHandler: ^(NSString* output, NSError* error) {
-                        if (output) {
-                            NSLog(@"%@", output);
-                        }
-                        if (error) {
-                            NSLog(@"Error calling CSFaxApi->faxReceiptsGet: %@", error);
-                        }
-                    }];
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **NSNumber***| Page number | [optional] [default to 1]
- **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
 
 ### Return type
 

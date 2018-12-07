@@ -64,6 +64,27 @@ extern NSInteger kCSAccountApiMissingParamErrorCode;
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
+/// Get account useage by subaccount
+/// Get account useage by subaccount
+///
+/// @param year Year to filter by (yyyy)
+/// @param month Month to filter by (mm)
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) accountUseageBySubaccountGetWithYear: (NSNumber*) year
+    month: (NSNumber*) month
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
 /// Send account activation token
 /// Send account activation token
 ///

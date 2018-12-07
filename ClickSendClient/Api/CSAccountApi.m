@@ -172,6 +172,91 @@ NSInteger kCSAccountApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Get account useage by subaccount
+/// Get account useage by subaccount
+///  @param year Year to filter by (yyyy) 
+///
+///  @param month Month to filter by (mm) 
+///
+///  @returns NSString*
+///
+-(NSURLSessionTask*) accountUseageBySubaccountGetWithYear: (NSNumber*) year
+    month: (NSNumber*) month
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'year' is set
+    if (year == nil) {
+        NSParameterAssert(year);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"year"] };
+            NSError* error = [NSError errorWithDomain:kCSAccountApiErrorDomain code:kCSAccountApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'month' is set
+    if (month == nil) {
+        NSParameterAssert(month);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"month"] };
+            NSError* error = [NSError errorWithDomain:kCSAccountApiErrorDomain code:kCSAccountApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/account/usage/{year}/{month}/subaccount"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (year != nil) {
+        pathParams[@"year"] = year;
+    }
+    if (month != nil) {
+        pathParams[@"month"] = month;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"BasicAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSString*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSString*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Send account activation token
 /// Send account activation token
 ///  @param accountVerify Account details 

@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**voiceHistoryGet**](CSVoiceApi.md#voicehistoryget) | **GET** /voice/history | Get all voice history
 [**voiceLangGet**](CSVoiceApi.md#voicelangget) | **GET** /voice/lang | Get all voice languages
 [**voicePricePost**](CSVoiceApi.md#voicepricepost) | **POST** /voice/price | Calculate voice price
-[**voiceReceiptsGet**](CSVoiceApi.md#voicereceiptsget) | **GET** /voice/receipts | Get all voice receipts
+[**voiceReceiptsGet**](CSVoiceApi.md#voicereceiptsget) | **GET** /voice/receipts | Get all delivery receipts
+[**voiceReceiptsPost**](CSVoiceApi.md#voicereceiptspost) | **POST** /voice/receipts | Add a delivery receipt
+[**voiceReceiptsReadPut**](CSVoiceApi.md#voicereceiptsreadput) | **PUT** /voice/receipts-read | Mark delivery receipts as read
 [**voiceSendPost**](CSVoiceApi.md#voicesendpost) | **POST** /voice/send | Send voice message(s)
 
 
@@ -355,9 +357,9 @@ Name | Type | Description  | Notes
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
-Get all voice receipts
+Get all delivery receipts
 
-Get all voice receipts
+Get all delivery receipts
 
 ### Example 
 ```objc
@@ -372,7 +374,7 @@ NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
 
 CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
 
-// Get all voice receipts
+// Get all delivery receipts
 [apiInstance voiceReceiptsGetWithPage:page
               limit:limit
           completionHandler: ^(NSString* output, NSError* error) {
@@ -391,6 +393,116 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **voiceReceiptsPost**
+```objc
+-(NSURLSessionTask*) voiceReceiptsPostWithUrl: (CSUrl*) url
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Add a delivery receipt
+
+Add a delivery receipt
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+CSUrl* url = [[CSUrl alloc] init]; // Url model
+
+CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
+
+// Add a delivery receipt
+[apiInstance voiceReceiptsPostWithUrl:url
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSVoiceApi->voiceReceiptsPost: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **url** | [**CSUrl***](CSUrl.md)| Url model | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **voiceReceiptsReadPut**
+```objc
+-(NSURLSessionTask*) voiceReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Mark delivery receipts as read
+
+Mark delivery receipts as read
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+CSDateBefore* dateBefore = [[CSDateBefore alloc] init]; // DateBefore model (optional)
+
+CSVoiceApi*apiInstance = [[CSVoiceApi alloc] init];
+
+// Mark delivery receipts as read
+[apiInstance voiceReceiptsReadPutWithDateBefore:dateBefore
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSVoiceApi->voiceReceiptsReadPut: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **dateBefore** | [**CSDateBefore***](CSDateBefore.md)| DateBefore model | [optional] 
 
 ### Return type
 

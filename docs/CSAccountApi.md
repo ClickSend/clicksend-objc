@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**accountGet**](CSAccountApi.md#accountget) | **GET** /account | Get account information
 [**accountPost**](CSAccountApi.md#accountpost) | **POST** /account | Create a new account
+[**accountUseageBySubaccountGet**](CSAccountApi.md#accountuseagebysubaccountget) | **GET** /account/usage/{year}/{month}/subaccount | Get account useage by subaccount
 [**accountVerifySendPut**](CSAccountApi.md#accountverifysendput) | **PUT** /account-verify/send | Send account activation token
 [**accountVerifyVerifyByActivationTokenPut**](CSAccountApi.md#accountverifyverifybyactivationtokenput) | **PUT** /account-verify/verify/{activation_token} | Verify new account
 [**forgotPasswordPut**](CSAccountApi.md#forgotpasswordput) | **PUT** /forgot-password | Forgot password
@@ -103,6 +104,65 @@ CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account** | [**CSAccount***](CSAccount.md)| Account model | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **accountUseageBySubaccountGet**
+```objc
+-(NSURLSessionTask*) accountUseageBySubaccountGetWithYear: (NSNumber*) year
+    month: (NSNumber*) month
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Get account useage by subaccount
+
+Get account useage by subaccount
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+NSNumber* year = @56; // Year to filter by (yyyy)
+NSNumber* month = @56; // Month to filter by (mm)
+
+CSAccountApi*apiInstance = [[CSAccountApi alloc] init];
+
+// Get account useage by subaccount
+[apiInstance accountUseageBySubaccountGetWithYear:year
+              month:month
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSAccountApi->accountUseageBySubaccountGet: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **year** | **NSNumber***| Year to filter by (yyyy) | 
+ **month** | **NSNumber***| Month to filter by (mm) | 
 
 ### Return type
 

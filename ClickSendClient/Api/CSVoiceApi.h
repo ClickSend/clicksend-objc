@@ -1,4 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "CSDateBefore.h"
+#import "CSUrl.h"
 #import "CSVoiceMessageCollection.h"
 #import "CSApi.h"
 
@@ -141,8 +143,8 @@ extern NSInteger kCSVoiceApiMissingParamErrorCode;
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
-/// Get all voice receipts
-/// Get all voice receipts
+/// Get all delivery receipts
+/// Get all delivery receipts
 ///
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
@@ -159,6 +161,44 @@ extern NSInteger kCSVoiceApiMissingParamErrorCode;
 /// @return NSString*
 -(NSURLSessionTask*) voiceReceiptsGetWithPage: (NSNumber*) page
     limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Add a delivery receipt
+/// Add a delivery receipt
+///
+/// @param url Url model
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) voiceReceiptsPostWithUrl: (CSUrl*) url
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Mark delivery receipts as read
+/// Mark delivery receipts as read
+///
+/// @param dateBefore DateBefore model (optional)
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) voiceReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

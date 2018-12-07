@@ -92,6 +92,7 @@ Import the following:
 #import <ClickSendClient/CSEmailDeliveryReceiptRulesApi.h>
 #import <ClickSendClient/CSEmailMarketingApi.h>
 #import <ClickSendClient/CSEmailToSmsApi.h>
+#import <ClickSendClient/CSFAXApi.h>
 #import <ClickSendClient/CSFAXDeliveryReceiptRulesApi.h>
 #import <ClickSendClient/CSFaxApi.h>
 #import <ClickSendClient/CSInboundFAXRulesApi.h>
