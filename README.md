@@ -61,7 +61,7 @@ Import the following:
 #import <ClickSendClient/CSFieldsFields.h>
 #import <ClickSendClient/CSForgotPassword.h>
 #import <ClickSendClient/CSForgotUsername.h>
-#import <ClickSendClient/CSInboundFAXRule.h>
+#import <ClickSendClient/CSInboundFaxRule.h>
 #import <ClickSendClient/CSInboundSMSRule.h>
 #import <ClickSendClient/CSMmsCampaign.h>
 #import <ClickSendClient/CSMmsMessage.h>
@@ -94,7 +94,6 @@ Import the following:
 #import <ClickSendClient/CSEmailToSmsApi.h>
 #import <ClickSendClient/CSFAXApi.h>
 #import <ClickSendClient/CSFAXDeliveryReceiptRulesApi.h>
-#import <ClickSendClient/CSFaxApi.h>
 #import <ClickSendClient/CSInboundFAXRulesApi.h>
 #import <ClickSendClient/CSInboundSMSRulesApi.h>
 #import <ClickSendClient/CSMMSApi.h>

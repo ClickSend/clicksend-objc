@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 # **faxInboundAutomationPost**
 ```objc
--(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+-(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -139,7 +139,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 [apiConfig setPassword:@"YOUR_PASSWORD"];
 
 
-CSInboundFAXRule* inboundFaxRule = [[CSInboundFAXRule alloc] init]; // Inbound fax rule model
+CSInboundFaxRule* inboundFaxRule = [[CSInboundFaxRule alloc] init]; // Inbound fax rule model
 
 CSInboundFAXRulesApi*apiInstance = [[CSInboundFAXRulesApi alloc] init];
 
@@ -159,7 +159,7 @@ CSInboundFAXRulesApi*apiInstance = [[CSInboundFAXRulesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **inboundFaxRule** | [**CSInboundFAXRule***](CSInboundFAXRule.md)| Inbound fax rule model | 
+ **inboundFaxRule** | [**CSInboundFaxRule***](CSInboundFaxRule.md)| Inbound fax rule model | 
 
 ### Return type
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **faxInboundAutomationPut**
 ```objc
 -(NSURLSessionTask*) faxInboundAutomationPutWithInboundRuleId: (NSNumber*) inboundRuleId
-    inboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+    inboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -196,7 +196,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 
 
 NSNumber* inboundRuleId = @56; // Inbound rule id
-CSInboundFAXRule* inboundFaxRule = [[CSInboundFAXRule alloc] init]; // Inbound fax rule model
+CSInboundFaxRule* inboundFaxRule = [[CSInboundFaxRule alloc] init]; // Inbound fax rule model
 
 CSInboundFAXRulesApi*apiInstance = [[CSInboundFAXRulesApi alloc] init];
 
@@ -218,7 +218,7 @@ CSInboundFAXRulesApi*apiInstance = [[CSInboundFAXRulesApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inboundRuleId** | **NSNumber***| Inbound rule id | 
- **inboundFaxRule** | [**CSInboundFAXRule***](CSInboundFAXRule.md)| Inbound fax rule model | 
+ **inboundFaxRule** | [**CSInboundFaxRule***](CSInboundFaxRule.md)| Inbound fax rule model | 
 
 ### Return type
 

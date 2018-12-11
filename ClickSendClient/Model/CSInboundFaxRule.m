@@ -1,6 +1,6 @@
-#import "CSInboundFAXRule.h"
+#import "CSInboundFaxRule.h"
 
-@implementation CSInboundFAXRule
+@implementation CSInboundFaxRule
 
 - (instancetype)init {
   self = [super init];

@@ -1,7 +1,7 @@
 #import "CSInboundFAXRulesApi.h"
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
-#import "CSInboundFAXRule.h"
+#import "CSInboundFaxRule.h"
 
 
 @interface CSInboundFAXRulesApi ()
@@ -192,7 +192,7 @@ NSInteger kCSInboundFAXRulesApiMissingParamErrorCode = 234513;
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+-(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'inboundFaxRule' is set
     if (inboundFaxRule == nil) {
@@ -261,7 +261,7 @@ NSInteger kCSInboundFAXRulesApiMissingParamErrorCode = 234513;
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) faxInboundAutomationPutWithInboundRuleId: (NSNumber*) inboundRuleId
-    inboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+    inboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'inboundRuleId' is set
     if (inboundRuleId == nil) {

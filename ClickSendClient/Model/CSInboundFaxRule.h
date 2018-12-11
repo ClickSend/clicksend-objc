@@ -17,10 +17,10 @@
 
 
 
-@protocol CSInboundFAXRule
+@protocol CSInboundFaxRule
 @end
 
-@interface CSInboundFAXRule : CSObject
+@interface CSInboundFaxRule : CSObject
 
 /* Dedicated Number. Can be '*' to apply to all numbers. 
  */

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "CSDateBefore.h"
+#import "CSFaxMessageCollection.h"
 #import "CSUrl.h"
 #import "CSApi.h"
 
@@ -23,6 +24,73 @@ extern NSString* kCSFAXApiErrorDomain;
 extern NSInteger kCSFAXApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(CSApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
+
+/// Get a list of Fax History.
+/// Get a list of Fax History.
+///
+/// @param dateFrom Customize result by setting from date (timestsamp) Example: 1457572619. (optional)
+/// @param dateTo Customize result by setting to date (timestamp) Example: 1457573000. (optional)
+/// @param q Custom query Example: status:Sent,status_code:201. (optional)
+/// @param order Order result by Example: date_added:desc,list_id:desc. (optional)
+/// @param page Page number (optional) (default to 1)
+/// @param limit Number of records per page (optional) (default to 10)
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) faxHistoryGetWithDateFrom: (NSNumber*) dateFrom
+    dateTo: (NSNumber*) dateTo
+    q: (NSString*) q
+    order: (NSString*) order
+    page: (NSNumber*) page
+    limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Calculate Total Price for Fax Messages sent
+/// Calculate Total Price for Fax Messages sent
+///
+/// @param faxMessage FaxMessageCollection model
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) faxPricePostWithFaxMessage: (CSFaxMessageCollection*) faxMessage
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Get a single fax receipt based on message id.
+/// Get a single fax receipt based on message id.
+///
+/// @param messageId ID of the message receipt to retrieve
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) faxReceiptsByMessageIdGetWithMessageId: (NSString*) messageId
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
 
 /// Get all delivery receipts
 /// Get all delivery receipts
@@ -80,6 +148,25 @@ extern NSInteger kCSFAXApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) faxReceiptsReadPutWithDateBefore: (CSDateBefore*) dateBefore
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Send a fax using supplied supported file-types.
+/// Send a fax using supplied supported file-types.
+///
+/// @param faxMessage FaxMessageCollection model
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) faxSendPostWithFaxMessage: (CSFaxMessageCollection*) faxMessage
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

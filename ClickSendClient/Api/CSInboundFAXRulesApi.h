@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "CSInboundFAXRule.h"
+#import "CSInboundFaxRule.h"
 #import "CSApi.h"
 
 /**
@@ -76,7 +76,7 @@ extern NSInteger kCSInboundFAXRulesApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+-(NSURLSessionTask*) faxInboundAutomationPostWithInboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -97,7 +97,7 @@ extern NSInteger kCSInboundFAXRulesApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) faxInboundAutomationPutWithInboundRuleId: (NSNumber*) inboundRuleId
-    inboundFaxRule: (CSInboundFAXRule*) inboundFaxRule
+    inboundFaxRule: (CSInboundFaxRule*) inboundFaxRule
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
