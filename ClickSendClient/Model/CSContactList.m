@@ -1,6 +1,6 @@
-#import "List.h"
+#import "CSContactList.h"
 
-@implementation List
+@implementation CSContactList
 
 - (instancetype)init {
   self = [super init];

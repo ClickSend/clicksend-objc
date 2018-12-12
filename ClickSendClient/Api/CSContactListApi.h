@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "CSContactList.h"
 #import "CSContactListImport.h"
 #import "CSFields.h"
 #import "CSApi.h"
@@ -66,7 +67,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 /// Update specific contact list
 ///
 /// @param listId Your list id
-/// @param list List model
+/// @param contactList Contact list model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -79,7 +80,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 ///
 /// @return NSString*
 -(NSURLSessionTask*) listsByListIdPutWithListId: (NSNumber*) listId
-    list: (NSArray) list
+    contactList: (CSContactList*) contactList
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
@@ -128,7 +129,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 /// Create new contact list
 /// Create new contact list
 ///
-/// @param list List model
+/// @param contactList Contact list model
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -140,7 +141,7 @@ extern NSInteger kCSContactListApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) listsPostWithList: (NSArray) list
+-(NSURLSessionTask*) listsPostWithContactList: (CSContactList*) contactList
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

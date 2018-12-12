@@ -35,13 +35,13 @@ Import the following:
 #import <ClickSendClient/CSApiClient.h>
 #import <ClickSendClient/CSDefaultConfiguration.h>
 // load models
-#import <ClickSendClient/List.h>
 #import <ClickSendClient/CSAccount.h>
 #import <ClickSendClient/CSAccountForgotPasswordVerify.h>
 #import <ClickSendClient/CSAccountVerify.h>
 #import <ClickSendClient/CSAddress.h>
 #import <ClickSendClient/CSAttachment.h>
 #import <ClickSendClient/CSContact.h>
+#import <ClickSendClient/CSContactList.h>
 #import <ClickSendClient/CSContactListImport.h>
 #import <ClickSendClient/CSCreditCard.h>
 #import <ClickSendClient/CSDateBefore.h>

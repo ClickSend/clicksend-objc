@@ -17,10 +17,10 @@
 
 
 
-@protocol List
+@protocol CSContactList
 @end
 
-@interface List : CSObject
+@interface CSContactList : CSObject
 
 /* Your list name. 
  */
