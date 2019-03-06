@@ -35,7 +35,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"listId": @"list_id", @"name": @"name", @"body": @"body", @"from": @"from", @"schedule": @"schedule" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"listId": @"list_id", @"name": @"name", @"body": @"body", @"from": @"from", @"schedule": @"schedule", @"urlToShorten": @"url_to_shorten" }];
 }
 
 /**
@@ -45,7 +45,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[@"from", @"schedule"];
+  NSArray *optionalProperties = @[@"from", @"schedule", @"urlToShorten"];
   return [optionalProperties containsObject:propertyName];
 }
 

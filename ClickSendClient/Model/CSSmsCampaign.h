@@ -37,5 +37,8 @@
 /* Your schedule timestamp. [optional]
  */
 @property(nonatomic) NSNumber* schedule;
+/* url to be shortened add http://smsg.io/xxxxx` to the body as a placeholder. [optional]
+ */
+@property(nonatomic) NSString* urlToShorten;
 
 @end
