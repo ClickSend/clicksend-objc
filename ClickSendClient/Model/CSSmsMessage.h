@@ -28,7 +28,7 @@
 /* Your message. 
  */
 @property(nonatomic) NSString* body;
-/* Recipient phone number in E.164 format. 
+/* Recipient phone number in E.164 format. [optional]
  */
 @property(nonatomic) NSString* to;
 /* Your method of sending e.g. 'wordpress', 'php', 'c#'. [optional]

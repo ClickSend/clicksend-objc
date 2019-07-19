@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**to** | **NSString*** | Recipient phone number in E.164 format | 
+**to** | **NSString*** | Recipient phone number in E.164 format | [optional] 
 **body** | **NSString*** | Your message | 
 **subject** | **NSString*** | Subject line (max 20 characters) | 
 **from** | **NSString*** | Your sender ID | [optional] 

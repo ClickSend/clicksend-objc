@@ -22,7 +22,7 @@
 
 @interface CSMmsMessage : CSObject
 
-/* Recipient phone number in E.164 format 
+/* Recipient phone number in E.164 format [optional]
  */
 @property(nonatomic) NSString* to;
 /* Your message 

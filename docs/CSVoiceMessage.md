@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**to** | **NSString*** | Your phone number in E.164 format. | 
+**to** | **NSString*** | Your phone number in E.164 format. | [optional] 
 **body** | **NSString*** | Biscuit uv3nlCOjRk croissant chocolate lollipop chocolate muffin. | 
 **voice** | **NSString*** | Either &#39;female&#39; or &#39;male&#39;. | 
 **customString** | **NSString*** | Your reference. Will be passed back with all replies and delivery reports. | 

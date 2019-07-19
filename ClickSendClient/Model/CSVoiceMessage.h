@@ -22,7 +22,7 @@
 
 @interface CSVoiceMessage : CSObject
 
-/* Your phone number in E.164 format. 
+/* Your phone number in E.164 format. [optional]
  */
 @property(nonatomic) NSString* to;
 /* Biscuit uv3nlCOjRk croissant chocolate lollipop chocolate muffin. 
