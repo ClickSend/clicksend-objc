@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**smsInboundReadByMessageIdPut**](CSSMSApi.md#smsinboundreadbymessageidput) | **PUT** /sms/inbound-read/{message_id} | Mark inbound SMS as read
 [**smsInboundReadPut**](CSSMSApi.md#smsinboundreadput) | **PUT** /sms/inbound-read | Mark inbound SMS as read
 [**smsPricePost**](CSSMSApi.md#smspricepost) | **POST** /sms/price | Calculate sms price
+[**smsReceiptReadByMessageIdPut**](CSSMSApi.md#smsreceiptreadbymessageidput) | **PUT** /sms/receipts-read/{message_id} | Mark specific delivery receipt as read
 [**smsReceiptsByMessageIdGet**](CSSMSApi.md#smsreceiptsbymessageidget) | **GET** /sms/receipts/{message_id} | Get a Specific Delivery Receipt
 [**smsReceiptsGet**](CSSMSApi.md#smsreceiptsget) | **GET** /sms/receipts | Get all delivery receipts
 [**smsReceiptsPost**](CSSMSApi.md#smsreceiptspost) | **POST** /sms/receipts | Add a delivery receipt
@@ -523,6 +524,61 @@ CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **smsMessages** | [**CSSmsMessageCollection***](CSSmsMessageCollection.md)| SmsMessageCollection model | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **smsReceiptReadByMessageIdPut**
+```objc
+-(NSURLSessionTask*) smsReceiptReadByMessageIdPutWithMessageId: (NSString*) messageId
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Mark specific delivery receipt as read
+
+Mark specific delivery receipt as read
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+NSString* messageId = @"messageId_example"; // The message ID you want to mark as read
+
+CSSMSApi*apiInstance = [[CSSMSApi alloc] init];
+
+// Mark specific delivery receipt as read
+[apiInstance smsReceiptReadByMessageIdPutWithMessageId:messageId
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSSMSApi->smsReceiptReadByMessageIdPut: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageId** | **NSString***| The message ID you want to mark as read | 
 
 ### Return type
 
