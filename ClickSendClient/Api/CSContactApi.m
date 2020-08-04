@@ -483,6 +483,108 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
 }
 
 ///
+/// Copy contact to another list
+/// Copy contact to another list
+///  @param fromListId List ID for list that contains contact. 
+///
+///  @param contactId Contact ID 
+///
+///  @param toListId List ID for list you want to copy the contact to. 
+///
+///  @returns NSString*
+///
+-(NSURLSessionTask*) listsCopyContactPutWithFromListId: (NSNumber*) fromListId
+    contactId: (NSNumber*) contactId
+    toListId: (NSNumber*) toListId
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler {
+    // verify the required parameter 'fromListId' is set
+    if (fromListId == nil) {
+        NSParameterAssert(fromListId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"fromListId"] };
+            NSError* error = [NSError errorWithDomain:kCSContactApiErrorDomain code:kCSContactApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'contactId' is set
+    if (contactId == nil) {
+        NSParameterAssert(contactId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"contactId"] };
+            NSError* error = [NSError errorWithDomain:kCSContactApiErrorDomain code:kCSContactApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    // verify the required parameter 'toListId' is set
+    if (toListId == nil) {
+        NSParameterAssert(toListId);
+        if(handler) {
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"toListId"] };
+            NSError* error = [NSError errorWithDomain:kCSContactApiErrorDomain code:kCSContactApiMissingParamErrorCode userInfo:userInfo];
+            handler(nil, error);
+        }
+        return nil;
+    }
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/lists/{from_list_id}/contacts/{contact_id}/copy/{to_list_id}"];
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (fromListId != nil) {
+        pathParams[@"from_list_id"] = fromListId;
+    }
+    if (contactId != nil) {
+        pathParams[@"contact_id"] = contactId;
+    }
+    if (toListId != nil) {
+        pathParams[@"to_list_id"] = toListId;
+    }
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
+    [headerParams addEntriesFromDictionary:self.defaultHeaders];
+    // HTTP header `Accept`
+    NSString *acceptHeader = [self.apiClient.sanitizer selectHeaderAccept:@[@"application/json"]];
+    if(acceptHeader.length > 0) {
+        headerParams[@"Accept"] = acceptHeader;
+    }
+
+    // response content type
+    NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
+
+    // request content type
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"BasicAuth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"PUT"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"NSString*"
+                           completionBlock: ^(id data, NSError *error) {
+                                if(handler) {
+                                    handler((NSString*)data, error);
+                                }
+                            }];
+}
+
+///
 /// Remove all opted out contacts
 /// Remove all opted out contacts
 ///  @param listId Your list id 

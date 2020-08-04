@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**listsContactsByListIdAndContactIdPut**](CSContactApi.md#listscontactsbylistidandcontactidput) | **PUT** /lists/{list_id}/contacts/{contact_id} | Update specific contact
 [**listsContactsByListIdGet**](CSContactApi.md#listscontactsbylistidget) | **GET** /lists/{list_id}/contacts | Get all contacts in a list
 [**listsContactsByListIdPost**](CSContactApi.md#listscontactsbylistidpost) | **POST** /lists/{list_id}/contacts | Create new contact
+[**listsCopyContactPut**](CSContactApi.md#listscopycontactput) | **PUT** /lists/{from_list_id}/contacts/{contact_id}/copy/{to_list_id} | Copy contact to another list
 [**listsRemoveOptedOutContactsByListIdAndOptOutListIdPut**](CSContactApi.md#listsremoveoptedoutcontactsbylistidandoptoutlistidput) | **PUT** /lists/{list_id}/remove-opted-out-contacts/{opt_out_list_id} | Remove all opted out contacts
 [**listsTransferContactPut**](CSContactApi.md#liststransfercontactput) | **PUT** /lists/{from_list_id}/contacts/{contact_id}/transfer/{to_list_id} | Transfer contact to another list
 
@@ -300,6 +301,69 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contact** | [**CSContact***](CSContact.md)| Contact model | 
  **listId** | **NSNumber***| List id | 
+
+### Return type
+
+**NSString***
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **listsCopyContactPut**
+```objc
+-(NSURLSessionTask*) listsCopyContactPutWithFromListId: (NSNumber*) fromListId
+    contactId: (NSNumber*) contactId
+    toListId: (NSNumber*) toListId
+        completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+```
+
+Copy contact to another list
+
+Copy contact to another list
+
+### Example 
+```objc
+CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
+// Configure HTTP basic authorization (authentication scheme: BasicAuth)
+[apiConfig setUsername:@"YOUR_USERNAME"];
+[apiConfig setPassword:@"YOUR_PASSWORD"];
+
+
+NSNumber* fromListId = @56; // List ID for list that contains contact.
+NSNumber* contactId = @56; // Contact ID
+NSNumber* toListId = @56; // List ID for list you want to copy the contact to.
+
+CSContactApi*apiInstance = [[CSContactApi alloc] init];
+
+// Copy contact to another list
+[apiInstance listsCopyContactPutWithFromListId:fromListId
+              contactId:contactId
+              toListId:toListId
+          completionHandler: ^(NSString* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling CSContactApi->listsCopyContactPut: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **fromListId** | **NSNumber***| List ID for list that contains contact. | 
+ **contactId** | **NSNumber***| Contact ID | 
+ **toListId** | **NSNumber***| List ID for list you want to copy the contact to. | 
 
 ### Return type
 
