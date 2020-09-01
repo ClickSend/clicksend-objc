@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **action** | **NSString*** | Action to be taken (AUTO_REPLY, EMAIL_USER, EMAIL_FIXED, URL, SMS, POLL, GROUP_SMS, MOVE_CONTACT, CREATE_CONTACT, CREATE_CONTACT_PLUS_EMAIL, CREATE_CONTACT_PLUS_NAME_EMAIL CREATE_CONTACT_PLUS_NAME, SMPP, NONE). | 
 **actionAddress** | **NSString*** | Action address. | 
 **enabled** | **NSNumber*** | Enabled: Disabled&#x3D;0 or Enabled&#x3D;1. | 
+**webhookType** | **NSString*** | post, get, or json. post by default | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

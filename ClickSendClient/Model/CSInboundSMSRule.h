@@ -43,5 +43,8 @@
 /* Enabled: Disabled=0 or Enabled=1. 
  */
 @property(nonatomic) NSNumber* enabled;
+/* post, get, or json. post by default [optional]
+ */
+@property(nonatomic) NSString* webhookType;
 
 @end

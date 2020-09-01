@@ -34,7 +34,7 @@
  * This method is used by `JSONModel`.
  */
 + (JSONKeyMapper *)keyMapper {
-  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"dedicatedNumber": @"dedicated_number", @"ruleName": @"rule_name", @"messageSearchType": @"message_search_type", @"messageSearchTerm": @"message_search_term", @"action": @"action", @"actionAddress": @"action_address", @"enabled": @"enabled" }];
+  return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{ @"dedicatedNumber": @"dedicated_number", @"ruleName": @"rule_name", @"messageSearchType": @"message_search_type", @"messageSearchTerm": @"message_search_term", @"action": @"action", @"actionAddress": @"action_address", @"enabled": @"enabled", @"webhookType": @"webhook_type" }];
 }
 
 /**
@@ -44,7 +44,7 @@
  */
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
 
-  NSArray *optionalProperties = @[];
+  NSArray *optionalProperties = @[@"webhookType"];
   return [optionalProperties containsObject:propertyName];
 }
 
