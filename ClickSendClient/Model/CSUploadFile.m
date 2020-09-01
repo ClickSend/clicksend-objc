@@ -1,6 +1,6 @@
-#import "CSContent.h"
+#import "CSUploadFile.h"
 
-@implementation CSContent
+@implementation CSUploadFile
 
 - (instancetype)init {
   self = [super init];

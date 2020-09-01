@@ -1,7 +1,7 @@
 #import "CSDetectAddressApi.h"
 #import "CSQueryParamCollection.h"
 #import "CSApiClient.h"
-#import "CSContent.h"
+#import "CSUploadFile.h"
 
 
 @interface CSDetectAddressApi ()
@@ -52,17 +52,17 @@ NSInteger kCSDetectAddressApiMissingParamErrorCode = 234513;
 ///
 /// Detects address in uploaded file.
 /// Detects address in uploaded file.
-///  @param content Your file to be uploaded 
+///  @param uploadFile Your file to be uploaded 
 ///
 ///  @returns NSString*
 ///
--(NSURLSessionTask*) detectAddressPostWithContent: (CSContent*) content
+-(NSURLSessionTask*) detectAddressPostWithUploadFile: (CSUploadFile*) uploadFile
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
-    // verify the required parameter 'content' is set
-    if (content == nil) {
-        NSParameterAssert(content);
+    // verify the required parameter 'uploadFile' is set
+    if (uploadFile == nil) {
+        NSParameterAssert(uploadFile);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"content"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"uploadFile"] };
             NSError* error = [NSError errorWithDomain:kCSDetectAddressApiErrorDomain code:kCSDetectAddressApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -94,7 +94,7 @@ NSInteger kCSDetectAddressApiMissingParamErrorCode = 234513;
     id bodyParam = nil;
     NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    bodyParam = content;
+    bodyParam = uploadFile;
 
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"POST"

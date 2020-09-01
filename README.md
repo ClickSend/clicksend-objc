@@ -45,7 +45,6 @@ Import the following:
 #import <ClickSendClient/CSContact.h>
 #import <ClickSendClient/CSContactList.h>
 #import <ClickSendClient/CSContactListImport.h>
-#import <ClickSendClient/CSContent.h>
 #import <ClickSendClient/CSCreditCard.h>
 #import <ClickSendClient/CSDateBefore.h>
 #import <ClickSendClient/CSDeliveryIssue.h>
@@ -80,6 +79,7 @@ Import the following:
 #import <ClickSendClient/CSSmsTemplate.h>
 #import <ClickSendClient/CSStrippedString.h>
 #import <ClickSendClient/CSSubaccount.h>
+#import <ClickSendClient/CSUploadFile.h>
 #import <ClickSendClient/CSUrl.h>
 #import <ClickSendClient/CSVoiceMessage.h>
 #import <ClickSendClient/CSVoiceMessageCollection.h>

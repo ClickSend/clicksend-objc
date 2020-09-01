@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "CSContent.h"
+#import "CSUploadFile.h"
 #import "CSApi.h"
 
 /**
@@ -26,7 +26,7 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 /// Upload File
 /// Upload File
 ///
-/// @param content Your file to be uploaded
+/// @param uploadFile Your file to be uploaded
 /// @param convert 
 /// 
 ///  code:200 message:"SUCCESS",
@@ -39,7 +39,7 @@ extern NSInteger kCSUploadApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) uploadsPostWithContent: (CSContent*) content
+-(NSURLSessionTask*) uploadsPostWithUploadFile: (CSUploadFile*) uploadFile
     convert: (NSString*) convert
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 

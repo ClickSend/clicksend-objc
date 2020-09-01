@@ -17,10 +17,10 @@
 
 
 
-@protocol CSContent
+@protocol CSUploadFile
 @end
 
-@interface CSContent : CSObject
+@interface CSUploadFile : CSObject
 
 /* Your base64 encoded file string. 
  */

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "CSContent.h"
+#import "CSUploadFile.h"
 #import "CSApi.h"
 
 /**
@@ -26,7 +26,7 @@ extern NSInteger kCSDetectAddressApiMissingParamErrorCode;
 /// Detects address in uploaded file.
 /// Detects address in uploaded file.
 ///
-/// @param content Your file to be uploaded
+/// @param uploadFile Your file to be uploaded
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -38,7 +38,7 @@ extern NSInteger kCSDetectAddressApiMissingParamErrorCode;
 ///  code:0 message:"INTERNAL_SERVER_ERROR"
 ///
 /// @return NSString*
--(NSURLSessionTask*) detectAddressPostWithContent: (CSContent*) content
+-(NSURLSessionTask*) detectAddressPostWithUploadFile: (CSUploadFile*) uploadFile
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
