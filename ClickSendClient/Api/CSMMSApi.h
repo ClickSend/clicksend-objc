@@ -24,6 +24,52 @@ extern NSInteger kCSMMSApiMissingParamErrorCode;
 
 -(instancetype) initWithApiClient:(CSApiClient *)apiClient NS_DESIGNATED_INITIALIZER;
 
+/// Export all mms history
+/// Export all mms history
+///
+/// @param filename Filename to download history as
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) mmsHistoryExportGetWithFilename: (NSString*) filename
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
+/// Get all mms history
+/// Get all mms history
+///
+/// @param q Custom query Example: from:{number},status_code:201. (optional)
+/// @param dateFrom Start date (optional)
+/// @param dateTo End date (optional)
+/// @param page Page number (optional) (default to 1)
+/// @param limit Number of records per page (optional) (default to 10)
+/// 
+///  code:200 message:"SUCCESS",
+///  code:400 message:"BAD_REQUEST",
+///  code:401 message:"UNAUTHORIZED",
+///  code:403 message:"FORBIDDEN",
+///  code:404 message:"NOT_FOUND",
+///  code:405 message:"METHOD_NOT_FOUND",
+///  code:429 message:"TOO_MANY_REQUESTS",
+///  code:0 message:"INTERNAL_SERVER_ERROR"
+///
+/// @return NSString*
+-(NSURLSessionTask*) mmsHistoryGetWithQ: (NSString*) q
+    dateFrom: (NSNumber*) dateFrom
+    dateTo: (NSNumber*) dateTo
+    page: (NSNumber*) page
+    limit: (NSNumber*) limit
+    completionHandler: (void (^)(NSString* output, NSError* error)) handler;
+
+
 /// Get Price for MMS sent
 /// Get Price for MMS sent
 ///
