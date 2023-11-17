@@ -200,6 +200,7 @@ Name | Type | Description  | Notes
 -(NSURLSessionTask*) listsContactsByListIdGetWithListId: (NSNumber*) listId
     page: (NSNumber*) page
     limit: (NSNumber*) limit
+    updatedAfter: (NSNumber*) updatedAfter
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -218,6 +219,7 @@ CSDefaultConfiguration *apiConfig = [CSDefaultConfiguration sharedConfig];
 NSNumber* listId = @56; // Contact list ID
 NSNumber* page = @1; // Page number (optional) (default to 1)
 NSNumber* limit = @10; // Number of records per page (optional) (default to 10)
+NSNumber* updatedAfter = @10; // Get all contacts updated after a given timestamp. (optional) (default to 10)
 
 CSContactApi*apiInstance = [[CSContactApi alloc] init];
 
@@ -225,6 +227,7 @@ CSContactApi*apiInstance = [[CSContactApi alloc] init];
 [apiInstance listsContactsByListIdGetWithListId:listId
               page:page
               limit:limit
+              updatedAfter:updatedAfter
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -242,6 +245,7 @@ Name | Type | Description  | Notes
  **listId** | **NSNumber***| Contact list ID | 
  **page** | **NSNumber***| Page number | [optional] [default to 1]
  **limit** | **NSNumber***| Number of records per page | [optional] [default to 10]
+ **updatedAfter** | **NSNumber***| Get all contacts updated after a given timestamp. | [optional] [default to 10]
 
 ### Return type
 
