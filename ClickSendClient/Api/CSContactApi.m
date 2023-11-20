@@ -328,11 +328,14 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
 ///
 ///  @param limit Number of records per page (optional, default to 10)
 ///
+///  @param updatedAfter Get all contacts updated after a given timestamp. (optional, default to 10)
+///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) listsContactsByListIdGetWithListId: (NSNumber*) listId
     page: (NSNumber*) page
     limit: (NSNumber*) limit
+    updatedAfter: (NSNumber*) updatedAfter
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'listId' is set
     if (listId == nil) {
@@ -358,6 +361,9 @@ NSInteger kCSContactApiMissingParamErrorCode = 234513;
     }
     if (limit != nil) {
         queryParams[@"limit"] = limit;
+    }
+    if (updatedAfter != nil) {
+        queryParams[@"updated_after"] = updatedAfter;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

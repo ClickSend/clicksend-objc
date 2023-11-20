@@ -94,6 +94,7 @@ extern NSInteger kCSContactApiMissingParamErrorCode;
 /// @param listId Contact list ID
 /// @param page Page number (optional) (default to 1)
 /// @param limit Number of records per page (optional) (default to 10)
+/// @param updatedAfter Get all contacts updated after a given timestamp. (optional) (default to 10)
 /// 
 ///  code:200 message:"SUCCESS",
 ///  code:400 message:"BAD_REQUEST",
@@ -108,6 +109,7 @@ extern NSInteger kCSContactApiMissingParamErrorCode;
 -(NSURLSessionTask*) listsContactsByListIdGetWithListId: (NSNumber*) listId
     page: (NSNumber*) page
     limit: (NSNumber*) limit
+    updatedAfter: (NSNumber*) updatedAfter
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
