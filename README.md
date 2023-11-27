@@ -45,6 +45,7 @@ Import the following:
 #import <ClickSendClient/CSContact.h>
 #import <ClickSendClient/CSContactList.h>
 #import <ClickSendClient/CSContactListImport.h>
+#import <ClickSendClient/CSCountryListIds.h>
 #import <ClickSendClient/CSCreditCard.h>
 #import <ClickSendClient/CSDateBefore.h>
 #import <ClickSendClient/CSDeliveryIssue.h>
@@ -96,6 +97,7 @@ Import the following:
 #import <ClickSendClient/CSEmailToSmsApi.h>
 #import <ClickSendClient/CSFAXApi.h>
 #import <ClickSendClient/CSFAXDeliveryReceiptRulesApi.h>
+#import <ClickSendClient/CSGlobalSendingApi.h>
 #import <ClickSendClient/CSInboundFAXRulesApi.h>
 #import <ClickSendClient/CSInboundSMSRulesApi.h>
 #import <ClickSendClient/CSMMSApi.h>
