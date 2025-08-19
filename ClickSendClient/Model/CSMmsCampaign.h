@@ -31,7 +31,7 @@
 /* Your campaign message. 
  */
 @property(nonatomic) NSString* body;
-/* Your sender id - more info: http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number. [optional]
+/* Your sender id - more info: https://help.clicksend.com/en/collections/57584-numbers-sender-ids. [optional]
  */
 @property(nonatomic) NSString* from;
 /* Your schedule timestamp. [optional]
