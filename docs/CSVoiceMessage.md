@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **source** | **NSString*** | Your method of sending e.g. &#39;wordpress&#39;, &#39;php&#39;, &#39;c#&#39;. | [optional] [default to @"sdk"]
 **listId** | **NSNumber*** | Your list ID if sending to a whole list. Can be used instead of &#39;to&#39;. | [optional] 
 **lang** | **NSString*** | au (string, required) - See section on available languages. | [optional] 
-**schedule** | **NSNumber*** | Leave blank for immediate delivery. Your schedule time in unix format https://help.clicksend.com/en/articles/44235-what-is-a-unix-timestamp | [optional] 
+**schedule** | **NSNumber*** | Leave blank for immediate delivery. Your schedule time in unix format http://help.clicksend.com/what-is-a-unix-timestamp | [optional] 
 **requireInput** | **NSNumber*** | Whether you want to receive a keypress from the call recipient | [optional] [default to @0]
 **machineDetection** | **NSNumber*** | Whether to attempt to detect an answering machine or voicemail service and leave a message | [optional] [default to @0]
 

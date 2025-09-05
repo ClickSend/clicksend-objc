@@ -34,7 +34,7 @@
 /* Your sender id. Must be a valid fax number. [optional]
  */
 @property(nonatomic) NSString* from;
-/* Leave blank for immediate delivery. Your schedule time in unix format https://help.clicksend.com/en/articles/44235-what-is-a-unix-timestamp [optional]
+/* Leave blank for immediate delivery. Your schedule time in unix format http://help.clicksend.com/what-is-a-unix-timestamp [optional]
  */
 @property(nonatomic) NSNumber* schedule;
 /* Your reference. Will be passed back with all replies and delivery reports. [optional]

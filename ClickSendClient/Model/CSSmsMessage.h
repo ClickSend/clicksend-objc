@@ -22,7 +22,7 @@
 
 @interface CSSmsMessage : CSObject
 
-/* Your sender id - more info: https://help.clicksend.com/en/collections/57584-numbers-sender-ids. [optional]
+/* Your sender id - more info: http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number. [optional]
  */
 @property(nonatomic) NSString* from;
 /* Your message. 
@@ -34,7 +34,7 @@
 /* Your method of sending e.g. 'wordpress', 'php', 'c#'. [optional]
  */
 @property(nonatomic) NSString* source;
-/* Leave blank for immediate delivery. Your schedule time in unix format https://help.clicksend.com/en/articles/44235-what-is-a-unix-timestamp [optional]
+/* Leave blank for immediate delivery. Your schedule time in unix format http://help.clicksend.com/what-is-a-unix-timestamp [optional]
  */
 @property(nonatomic) NSNumber* schedule;
 /* Your reference. Will be passed back with all replies and delivery reports. [optional]

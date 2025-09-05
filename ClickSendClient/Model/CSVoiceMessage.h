@@ -46,7 +46,7 @@
 /* au (string, required) - See section on available languages. [optional]
  */
 @property(nonatomic) NSString* lang;
-/* Leave blank for immediate delivery. Your schedule time in unix format https://help.clicksend.com/en/articles/44235-what-is-a-unix-timestamp [optional]
+/* Leave blank for immediate delivery. Your schedule time in unix format http://help.clicksend.com/what-is-a-unix-timestamp [optional]
  */
 @property(nonatomic) NSNumber* schedule;
 /* Whether you want to receive a keypress from the call recipient [optional]
